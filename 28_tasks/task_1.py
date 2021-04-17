@@ -4,8 +4,6 @@ def squirrel(N):
         for i in range(1, N+1):
             fac = i*fac
         out = str(fac)
-        return out[0]
+        return int(out[0])
     else:
         return False
-
-
