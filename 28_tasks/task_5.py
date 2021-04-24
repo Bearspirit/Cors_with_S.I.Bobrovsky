@@ -45,5 +45,5 @@ def SynchronizingTables(N, ids, salary):
 
         return result_list
     else:
-        return 
+        return False
 
