@@ -29,7 +29,7 @@ int [] SynchronizingTables(int N, int [] ids, int [] salary)
 """
 
 def SynchronizingTables(N, ids, salary):
-    if len(ids) == N/2 and len(salary) == N/2:
+    if len(ids) == N and len(salary) == N:
         dict_1 = {}
         sotr = ids.copy()
         zarpl = salary.copy()
@@ -45,4 +45,5 @@ def SynchronizingTables(N, ids, salary):
 
         return result_list
     else:
-        return False
+        return 
+
