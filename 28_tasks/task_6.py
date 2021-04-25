@@ -37,10 +37,26 @@ def PatternUnlock(N, hits):
             num += 1        
         elif hits[i]-1 == hits[i+1]:
             num += 1
+        elif hits[i] == 6 and hits[i+1] == 1:
+            num += 1
+        elif (hits[i] == 1)  and (hits[i+1] == (6 or 9)):
+            num += 1 
+        elif hits[i] == 9 and hits[i+1] == 1:
+            num += 1
+        elif hits[i] == 5 and hits[i+1] == 2:
+            num += 1
+        elif (hits[i] == 2) and (hits[i+1] == (5 or 8)):
+            num += 1
+        elif hits[i] == 8 and hits[i+1] == 2:
+            num += 1
+        elif hits[i] == 3 and hits[i+1] == 7:
+            num += 1
+        elif hits[i] == 7 and hits[i+1] == 3:
+            num += 1
         else:
             num += 1.41421356
+    
     result =str(round(num, 5))
     result = result.replace(".", "")
     result = result.replace("0", "")
     return result
-
