@@ -44,7 +44,7 @@ def WordSearch(num, s, subs):
     for i in s.split():
         word_len += len(i)
         if word_len == num:
-            text = text + "\n"+ i + "\n"
+            text = text + i + "\n"
             word_len = 0
         elif word_len > num:
             if len(i) >= num:
@@ -64,15 +64,14 @@ def WordSearch(num, s, subs):
                         n = n - num
 
             elif len(i) < num:
-                text = text + "\n" + i 
+                text = text + "\n" + i + " "
                 word_len = len(i) + 1
         else:
-            if word_len != len(i):
-                text += " "
-                word_len += 1
-            text += i
-
-
+            text = text + i + " "
+            word_len += 1
+        if word_len > num:
+            word_len = 0
+            
     st_list = text.split("\n")
 
     for line in st_list:
