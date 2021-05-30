@@ -11,6 +11,8 @@ class func_test(unittest.TestCase):
         self.assertEqual(Unmanned(10, 1, [[10,2,2]]), 10)
         self.assertEqual(Unmanned(10, 1, [[9,2,2]]), 11)
         self.assertEqual(Unmanned(10, 2, [[4,1,1],[10,3,3]]), 11)
+        self.assertEqual(Unmanned(10, 2, [[3,6,2],[6,2,2]]), 14)
+        self.assertEqual(Unmanned(3, 1, [[2,6,2]]), 7)
 
         
 
