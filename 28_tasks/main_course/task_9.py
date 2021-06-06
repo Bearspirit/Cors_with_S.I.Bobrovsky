@@ -54,11 +54,9 @@ def TankRush(H1, W1, S1, H2, W2, S2):
             for i in range((index[0]+1) - len(map_2), index[0]+1):
                 if map_1[i].count(dot) == 1:
                     count.append(map_1[i].index(dot))
-                break
+                    break
     
     if len(set(count)) == 1:
         return True
     else:
         return False           
-
-
