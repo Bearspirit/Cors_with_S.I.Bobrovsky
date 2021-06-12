@@ -39,24 +39,42 @@ def TankRush(H1, W1, S1, H2, W2, S2):
     map_1 = S1.split()
     map_2 = S2.split()
     index = []
-    count = []
-    for i in range(H1):
-        for j in range(H2):
+    count_1 = []
+    count_2 = []
+    for i in range(len(map_2)):
+        for j in range(len(map_1)):
             try:
-                if map_2[j] not in map_1[i+j]:
-                    break
+                if (map_2[i] in map_1[j]) and (map_2[i+1] in map_1[j+1]):
+                    index.append(map_1[j])
+                    index.append(map_1[j+1])
             except IndexError:
                 continue
+    if len(index) == 0:
+        return False
+    index = index[-len(map_2):]
+    for k in range(len(index)):
+        if index[k].count(map_2[k]) == 1:
+            count_1.append(index[k].index(map_2[k]))
         else:
-            index.append(i+j)
-    if len(index) > 0:
-        for dot in map_2:
-            for i in range((index[0]+1) - len(map_2), index[0]+1):
-                if map_1[i].count(dot) == 1:
-                    count.append(map_1[i].index(dot))
-                    break
-    
-    if len(set(count)) == 1:
-        return True
-    else:
-        return False           
+            for m in range(0, len(index[k])):
+                try:
+                    if index[k][m:m+len(map_2[k])] == map_2[k]:
+                        count_2.append(m)
+                except IndexError:
+                    continue
+    if len(count_2) == 0:
+        if len(set(count_1)) == 1:
+            return True
+        else:
+            return False
+    elif len(count_2) > 0:
+        if len(count_1) == 0:
+            if len(set(count_2)) == 1:
+                return True
+            else:
+                return False
+        else:
+            for dig in count_2:
+                if dig in count_1:
+                    return True
+            return False  
