@@ -9,7 +9,7 @@ class func_test(unittest.TestCase):
         self.assertEqual(MisterRobot(4, [1,3,4,2]), True)
         self.assertEqual(MisterRobot(4, [4,3,2,1]), False)
         self.assertEqual(MisterRobot(4, [1,2,4,3]), False)
-        self.assertEqual(MisterRobot(4, [2,1,3,4]), False)
+        self.assertEqual(MisterRobot(4, [2,3,1,4]), True)
 
         
 
