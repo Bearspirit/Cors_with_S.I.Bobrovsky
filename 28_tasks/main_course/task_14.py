@@ -129,10 +129,3 @@ def BastShoe(command):
         return command
 
 
-
-
-
-print(BastShoe("1 Hello"))
-print(BastShoe("2 2"))
-print(BastShoe("3 3"))
-print(string_list)
