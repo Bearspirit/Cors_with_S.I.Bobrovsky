@@ -86,10 +86,8 @@ string BastShoe(string command)
 string_list = []
 deleted_elements = []
 count_undo = 0
-count = 0
 def BastShoe(command):
     global count_undo
-    global count
     command_list = command.split(" ", maxsplit=1)
 
     if command_list[0] == "1": 
@@ -129,7 +127,12 @@ def BastShoe(command):
 
     elif command_list[0] == "4":
         if count_undo == 1:
-            return string_list[-2]
+            if len(deleted_elements) == 0:
+                deleted_elements.append(string_list[-1])
+                del string_list[-1]
+                return string_list[-1]
+            else:
+                return string_list[-1]
         elif len(string_list) > 0:
             deleted_elements.append(string_list[-1])
             del string_list[-1]
@@ -137,14 +140,13 @@ def BastShoe(command):
                 return ""
             else:
                 return string_list[-1]
-        elif len(string_list) == 0:
+        else: #len(string_list) == 0:
             return ""
-            
 
     elif command_list[0] == "5":
         if len(deleted_elements) == 0:
             return string_list[-1]
-        if len(deleted_elements) > 0:
+        elif len(deleted_elements) > 0:
             string_list.append(deleted_elements[-1])
             del deleted_elements[-1]
             return string_list[-1]
@@ -154,8 +156,31 @@ def BastShoe(command):
             return string_list[-1]
         else:
             return ""
-
 """
+print(BastShoe("1 Hello"))
+print(BastShoe("1 , World!"))
+print(BastShoe("1 *"))
+print(BastShoe("1 ++"))
+print(BastShoe("4"))
+print(BastShoe("4"))
+print(BastShoe("1 ++"))
+print(BastShoe("4"))
+print(BastShoe("4"))
+print(BastShoe("4"))
+print(BastShoe("4"))
+print(BastShoe("1 *"))
+print(BastShoe("4"))
+print(BastShoe("5"))
+print(BastShoe("4"))
+print(BastShoe("4"))
+print(BastShoe("4"))
+print(BastShoe("4"))
+print(BastShoe("5"))
+print(BastShoe("5"))
+print(BastShoe("5"))
+print(BastShoe("5"))
+print(BastShoe("5"))
+
 print(BastShoe("1 Привет")) 
 #В текущей строке будет "Привет"
 print(BastShoe("1 , Мир!"))
