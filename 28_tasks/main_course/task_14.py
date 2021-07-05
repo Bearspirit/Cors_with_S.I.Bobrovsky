@@ -2,30 +2,20 @@
 В рамках проекта тотального импортозамещения решено полностью с нуля переписать весь офисный софт в стране. 
 Вы получили подряд с бюджетом миллион рублей по созданию оригинального текстового редактора "Лапоть". 
 Закодируйте его максимально компактно!
-
-
 "Лапоть" поддерживает пять операций:
-
 1. Добавить(S) -- в конец текущей строки (исходно пустая) добавляется строка S;
-
 2. Удалить(N) -- удалить N символов из конца текущей строки. Если N больше длины текущей строки, удаляем из неё все символы;
-
 3. Выдать(i) -- выдать i-й символ текущей строки (индексация начинается с нуля) в формате строки (строковый тип). 
 Если индекс за пределами строки, возвращайте пустую строку;
-
 4. Undo() -- отмена последней операции 1 или 2; отмена должна уметь выполняться при необходимости неограниченное число раз;
-
 5. Redo() -- выполнить заново последнюю отменённую с помощью Undo операцию; Redo должна уметь выполняться 
 при необходимости неограниченное число раз.
 Если после Undo выполняется операция 1 или 2, то
 -- предыдущая цепочка операций для Undo обнуляется (откатить можно только последнюю операцию 1 или 2);
 -- Redo более становится нечего откатывать.
-
 На вход редактора подаётся одна строка, первый символ которой -- номер операции (1-5) и через пробел, 
 при необходимости, параметр соответствующей операции.
-
 Например:
-
 1 Привет 
 В текущей строке будет "Привет"
 1  , Мир!
@@ -86,7 +76,6 @@
 Прив
 5
 Прив
-
 Функция
 string BastShoe(string command)          
 получает на вход строку в формате "N параметр", где N -- код операции (1-5), и возвращает текущую строку, или символ 
@@ -95,21 +84,38 @@ string BastShoe(string command)
 Если команда задана некорректно, Лапоть ничего не делает (просто возвращает текущую строку без изменений).
 """
 string_list = []
+deleted_elements = []
+count_undo = 0
+count = 0
 def BastShoe(command):
-    command_list = command.split(" ")
+    global count_undo
+    global count
+    command_list = command.split(" ", maxsplit=1)
 
-    if command_list[0] == "1":
+    if command_list[0] == "1": 
+        if len(deleted_elements) > 0:
+            deleted_elements.clear()
+            count_undo = 1
+        elif len(deleted_elements) == 0:
+            count_undo = 0
         if len(string_list) == 0:
             string_list.append(command_list[1])
             return string_list[0]
         else:
-            string_list.append(string_list[len(string_list)-1] + command_list[1])
+            string_list.append(string_list[-1] + command_list[1])
         return string_list[len(string_list)-1]
 
     elif command_list[0] == "2":
-        if len(string_list[len(string_list)-1]) >= int(command_list[1]):
-            string_list.append(string_list[len(string_list)-1][:-int(command_list[1])])
-            return string_list[len(string_list)-1]
+        if len(deleted_elements) > 0:
+            deleted_elements.clear()
+            count_undo = 1
+        elif len(deleted_elements) == 0:
+            count_undo = 0
+        if len(string_list) == 0:
+            return ""
+        elif len(string_list[-1]) >= int(command_list[1]):
+            string_list.append(string_list[-1][:-int(command_list[1])])
+            return string_list[-1]
         else:
             string_list.append("")
             return string_list[-1]
@@ -121,11 +127,93 @@ def BastShoe(command):
         except IndexError:
             return ""
 
-    #elif command_list[0] == "4":
+    elif command_list[0] == "4":
+        if count_undo == 1:
+            return string_list[-2]
+        elif len(string_list) > 0:
+            deleted_elements.append(string_list[-1])
+            del string_list[-1]
+            if len(string_list) == 0:
+                return ""
+            else:
+                return string_list[-1]
+        elif len(string_list) == 0:
+            return ""
+            
 
-    #elif command_list[0] == "5":
+    elif command_list[0] == "5":
+        if len(deleted_elements) == 0:
+            return string_list[-1]
+        if len(deleted_elements) > 0:
+            string_list.append(deleted_elements[-1])
+            del deleted_elements[-1]
+            return string_list[-1]
 
     else:
-        return command
+        if len(string_list) > 0:
+            return string_list[-1]
+        else:
+            return ""
 
-
+"""
+print(BastShoe("1 Привет")) 
+#В текущей строке будет "Привет"
+print(BastShoe("1 , Мир!"))
+#Привет, Мир!
+print(BastShoe("1 ++")) 
+#Привет, Мир!++
+print(BastShoe("2 2"))
+#Привет, Мир!
+print(BastShoe("4"))
+#Привет, Мир!++
+print(BastShoe("4"))
+#Привет, Мир!
+print(BastShoe("1 *"))
+#Привет, Мир!*
+print(BastShoe("4"))
+#Привет, Мир!
+print(BastShoe("4")) 
+#Привет, Мир!
+print(BastShoe("4"))
+#Привет, Мир!
+print(BastShoe("3 6"))
+#,
+print(BastShoe("2 100"))
+#
+print(BastShoe("1 Привет")) 
+#Привет
+print(BastShoe("1 , Мир!"))
+#Привет, Мир!
+print(BastShoe("1 ++")) 
+#Привет, Мир!++
+print(BastShoe("4"))
+#Привет, Мир!
+print(BastShoe("4"))
+#Привет
+print(BastShoe("5"))
+#Привет, Мир!
+print(BastShoe("4"))
+#Привет
+print(BastShoe("5"))
+#Привет, Мир!
+print(BastShoe("5"))
+#Привет, Мир!++
+print(BastShoe("5"))
+#Привет, Мир!++
+print(BastShoe("5"))
+#Привет, Мир!++
+print(BastShoe("4"))
+#Привет, Мир!
+print(BastShoe("4"))
+#Привет
+print(BastShoe("2 2"))
+#Прив
+print(BastShoe("4"))
+#Привет
+print(BastShoe("5"))
+#Прив
+print(BastShoe("5"))
+#Прив
+print(BastShoe("5"))
+#Прив
+"""
