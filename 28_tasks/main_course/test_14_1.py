@@ -68,7 +68,19 @@ class func_test(unittest.TestCase):
         self.assertEqual(BastShoe("5"), "Привет, Мир!")
         self.assertEqual(BastShoe("5"), "Привет, Мир!")
         self.assertEqual(BastShoe("5"), "Привет, Мир!")
-        
+        self.assertEqual(BastShoe("2 200"), "")
+        self.assertEqual(BastShoe("1 Привет"), "Привет")
+        self.assertEqual(BastShoe("4"), "")
+        self.assertEqual(BastShoe("1 Мир!"), "Мир!")
+        self.assertEqual(BastShoe("4"), "")
+        self.assertEqual(BastShoe("4"), "")
+        self.assertEqual(BastShoe("4"), "")
+        self.assertEqual(BastShoe("4"), "")
+        self.assertEqual(BastShoe("5"), "Мир!")
+        self.assertEqual(BastShoe("5"), "Мир!")
+        self.assertEqual(BastShoe("5"), "Мир!")
+        self.assertEqual(BastShoe("5"), "Мир!")
+        self.assertEqual(BastShoe("5"), "Мир!")
 
         
 

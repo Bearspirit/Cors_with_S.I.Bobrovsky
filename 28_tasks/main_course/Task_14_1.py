@@ -117,14 +117,18 @@ def BastShoe(command):
             string_list.append(string_list[-1][:-int(command_list[1])])
             return string_list[-1]
         else:
+            del string_list[-1]
             string_list.append("")
             return string_list[-1]
 
 
     elif command_list[0] == "3":
-        try:
-            return string_list[-1][int(command_list[1])]
-        except IndexError:
+        if len(string_list) > 0:
+            try:
+                return string_list[-1][int(command_list[1])]
+            except IndexError:
+                return ""
+        else:
             return ""
 
     elif command_list[0] == "4":
