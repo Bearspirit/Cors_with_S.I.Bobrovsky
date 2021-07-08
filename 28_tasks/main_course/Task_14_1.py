@@ -83,7 +83,7 @@ string BastShoe(string command)
 Например, BastShoe("1 Привет") = "Привет"
 Если команда задана некорректно, Лапоть ничего не делает (просто возвращает текущую строку без изменений).
 """
-string_list = []
+string_list = [""]
 deleted_elements = []
 count_undo = 0
 def BastShoe(command):
@@ -149,13 +149,15 @@ def BastShoe(command):
                     return string_list[-1]
                 else:
                     return ""
-        elif len(string_list) > 0:
+        elif len(string_list) > 1:
             deleted_elements.append(string_list[-1])
             del string_list[-1]
             if len(string_list) == 0:
                 return ""
             else:
                 return string_list[-1]
+        elif len(string_list) == 1 and len(deleted_elements) > 0:
+            return string_list[0]
         else: #len(string_list) == 0:
             return ""
 
