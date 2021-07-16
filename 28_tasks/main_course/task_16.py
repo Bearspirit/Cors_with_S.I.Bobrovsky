@@ -50,10 +50,13 @@ def SherlockValidString(der_parol):
     if 1 not in result_list:
         return False
     else:
-        for el in result_set:
-            if midle_list.count(el) == 1:
-                midle_list.remove(el)
-                if (el-1) == midle_list[0]:
-                    return True    
-                else:
-                    return False 
+        if abs(midle_list[0]-midle_list[1]) == 1:
+            return True
+        else:
+            for el in result_set:
+                if midle_list.count(el) == 1:
+                    midle_list.remove(el)
+                    if (el-1) == midle_list[0]:
+                        return True    
+                    else:
+                        return False 

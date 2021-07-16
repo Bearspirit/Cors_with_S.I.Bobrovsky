@@ -10,6 +10,8 @@ class SherlockValidString_test(unittest.TestCase):
         self.assertTrue(SherlockValidString("xyzxyzt"))
         self.assertTrue(SherlockValidString("xzzz"))
         self.assertTrue(SherlockValidString("xz"))
+        self.assertTrue(SherlockValidString("xxxxxyyyyyy"))
+        self.assertTrue(SherlockValidString("xyzxyzttt"))
 
 
     def test_der_parol_is_False(self):
@@ -19,6 +21,8 @@ class SherlockValidString_test(unittest.TestCase):
         self.assertFalse(SherlockValidString("xxyyzzzz"))
         self.assertFalse(SherlockValidString("xxyyzzziiioo"))
         self.assertFalse(SherlockValidString("xxzzzz"))
+        self.assertFalse(SherlockValidString("xxxxxyyyyyyy"))
+        self.assertFalse(SherlockValidString("xyzxyztttt"))
 
 
 if __name__ == '__main__':
