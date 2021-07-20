@@ -95,8 +95,49 @@ def TreeOfLife(H, W, N, tree):
 
     for year in range(0, N):
         if year%2 == 0:
-            for chet in range(0, )
-    return tree_list
+            for chet_1 in range(0, H):
+                for chet_2 in range(0, W):
+                    tree_list[chet_1][chet_2] += 1
+        else:
+            for nechet_1 in range(0, H):
+                for nechet_2 in range(0, W):
+                    tree_list[nechet_1][nechet_2] += 1
+            for k in range(0, H):
+                for g in range(0, W):
+                    if type(tree_list[k][g]) == str:
+                        continue
+                    elif tree_list[k][g] >= 3:
+                        try:
+                            if (type(tree_list[k-1][g]) != str) and (tree_list[k-1][g] < 3):
+                                tree_list[k-1][g] = "++"
+                            if (type(tree_list[k+1][g]) != str)  and (tree_list[k+1][g] < 3):
+                                tree_list[k+1][g] = "++"
+                            if (type(tree_list[k][g-1]) != str) and (tree_list[k][g-1] < 3):
+                                tree_list[k][g-1] = "++"
+                            if (type(tree_list[k][g+1]) != str) and  (tree_list[k][g+1] < 3):
+                                tree_list[k][g+1] = "++"
+                        except IndexError:
+                            continue
+            for p in range(0, H):
+                for o in range(0, W):
+                    if (tree_list[p][o] == "++") or (tree_list[p][o] >= 3):
+                        tree_list[p][o] = 0
+
+    for q in range(0, H):
+        for w in range(0, W):
+            if tree_list[q][w] == 0:
+                tree_list[q][w] = "."
+            else:
+                tree_list[q][w] = "+"
+    result_list = []
+    for el in tree_list:
+        result_list.append("".join(el))
+
+
+            
+    
+        
+    return result_list
 
 
 
