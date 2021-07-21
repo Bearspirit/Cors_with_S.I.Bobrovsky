@@ -107,17 +107,15 @@ def TreeOfLife(H, W, N, tree):
                     if type(tree_list[k][g]) == str:
                         continue
                     elif tree_list[k][g] >= 3:
-                        try:
-                            if (type(tree_list[k-1][g]) != str) and (tree_list[k-1][g] < 3):
-                                tree_list[k-1][g] = "++"
-                            if (type(tree_list[k+1][g]) != str)  and (tree_list[k+1][g] < 3):
-                                tree_list[k+1][g] = "++"
-                            if (type(tree_list[k][g-1]) != str) and (tree_list[k][g-1] < 3):
-                                tree_list[k][g-1] = "++"
-                            if (type(tree_list[k][g+1]) != str) and  (tree_list[k][g+1] < 3):
-                                tree_list[k][g+1] = "++"
-                        except IndexError:
-                            continue
+                        if (k > 0) and (type(tree_list[k-1][g]) != str) and (tree_list[k-1][g] < 3):
+                            tree_list[k-1][g] = "++"
+                        if (k < H-1) and (type(tree_list[k+1][g]) != str)  and (tree_list[k+1][g] < 3):
+                            tree_list[k+1][g] = "++"
+                        if (g > 0) and (type(tree_list[k][g-1]) != str) and (tree_list[k][g-1] < 3):
+                            tree_list[k][g-1] = "++"
+                        if (g < W-1) and (type(tree_list[k][g+1]) != str) and  (tree_list[k][g+1] < 3):
+                            tree_list[k][g+1] = "++"
+                        
             for p in range(0, H):
                 for o in range(0, W):
                     if (tree_list[p][o] == "++") or (tree_list[p][o] >= 3):
@@ -138,7 +136,3 @@ def TreeOfLife(H, W, N, tree):
     
         
     return result_list
-
-
-
-print(TreeOfLife(3, 4, 4, [".+..","..+.",".+.."]))
