@@ -81,4 +81,4 @@ def MatrixTurn(Matrix, M, N, T):
 
 
 
-print(MatrixTurn(["123456", "234567", "345678", "456789"], 4, 6, 1))
+#print(MatrixTurn(["123456", "234567", "345678", "456789"], 4, 6, 1))
