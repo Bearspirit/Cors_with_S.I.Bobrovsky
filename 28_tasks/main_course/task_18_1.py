@@ -30,26 +30,15 @@ def MatrixTurn(Matrix, M, N, T):
         matrix.append([])
         for j in range(0, N):
             matrix[i].append(Matrix[i][j])
+  
             
     
-    if not len(matrix):
-        return
-
-    """
-        top : индекс начальной строки
-        bottom : индекс конечной строки
-        left : индекс начального столбца
-        right : индекс конечного столбца
-    """
-
-
-
     for k in range(0, T):
-        top = 0
-        bottom = len(matrix)-1
+        top = 0                       #индекс начальной строки
+        bottom = len(matrix)-1        #индекс конечной строки
 
-        left = 0
-        right = len(matrix[0])-1
+        left = 0                      #индекс начального столбца
+        right = len(matrix[0])-1      #индекс конечного столбца
 
 
         while left < right and top < bottom:
@@ -93,4 +82,9 @@ def MatrixTurn(Matrix, M, N, T):
     for j in range(0, M):
         midle_list.append(''.join(matrix[j]))
 
-    return midle_list
+    Matrix.clear()
+    for t in range(0, len(midle_list)):
+        Matrix.append(midle_list[t])
+
+
+    return Matrix
