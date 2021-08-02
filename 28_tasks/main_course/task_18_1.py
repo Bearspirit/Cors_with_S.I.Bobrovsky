@@ -79,7 +79,7 @@ def MatrixTurn(Matrix, M, N, T):
 
             left += 1
 
-    for j in range(0, M):
+    for j in range(0, len(matrix)):
         midle_list.append(''.join(matrix[j]))
 
     Matrix.clear()
