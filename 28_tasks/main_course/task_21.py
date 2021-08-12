@@ -42,9 +42,13 @@ def Football(F, N):
     A = F[:]
     B = F[:]
     A.sort()
-    if (F == A) or (F[::-1] == A):
+    if len(F) == 1:
+        return False
+    elif F == A:
+        return False
+    elif F[::-1] == A:
         return True
-    
+
     for i in range(0, len(F)-1):
         if F[i] > F[i+1]:
             B[i],B[i+1] = B[i+1], B[i]
