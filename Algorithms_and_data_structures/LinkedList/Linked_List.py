@@ -72,8 +72,7 @@ class LinkedList:
             if node.value == val:
                 find_list.append(node)
             node = node.next
-        if len(find_list) > 0:
-            return find_list
+        return find_list
 
     def delete(self, val, all=False):
         if self.head is None:
@@ -83,12 +82,14 @@ class LinkedList:
         while node is not None:
             if node.value == val:
                 if prev_node == None:
-                    self.head = node.next                        
-                    
+                    if self.head.next == None:
+                        self.head = None
+                        self.tail = None
+                    else:
+                        self.head = node.next                                 
                 elif node is self.tail:
                     prev_node.next = None
-                    node = None
-                    
+                    self.tail = prev_node
                 else:
                     prev_node.next = node.next
                     node = node.next
@@ -96,7 +97,8 @@ class LinkedList:
                     break    
             else:
                 prev_node = node
-            node = node.next
+            if node != None:
+                node = node.next
                
     def clean(self):
         self.head = None
@@ -113,33 +115,22 @@ class LinkedList:
     def insert(self, afterNode, newNode):
         node = self.head
         nx_node = node.next
-        while node is not None:
-            if node == afterNode:
-                if nx_node is None:
-                    node.next = newNode
-                else:
-                    node.next = newNode
-                    newNode.next = nx_node
-                break
+        if afterNode == None:
+            self.head = newNode
+            self.head.next = node
+        else:
+            while node is not None:
+                if node == afterNode:
+                    if nx_node is None:
+                        self.tail.next = newNode
+                        self.tail = newNode
+                    else:
+                        node.next = newNode
+                        newNode.next = nx_node
+                    break
             
-            node = node.next            
-            if (nx_node == self.tail) or (nx_node == None): 
-                nx_node = None
-            else:
-                nx_node = node.next
-
-
-
-  
-n1 = Node(12)
-n2 = Node(55)
-s_list = LinkedList()
-s_list.add_in_tail(n1)
-s_list.add_in_tail(n2)
-s_list.add_in_tail(Node(128))
-s_list.add_in_tail(Node(64))
-s_list.add_in_tail(Node(128))
-s_list.add_in_tail(Node(12))
-s_list.add_in_tail(Node(35))
-s_list.print_all_nodes()
-s_list.find_all(12)
+                node = node.next            
+                if (nx_node == self.tail) or (nx_node == None): 
+                    nx_node = None
+                else:
+                    nx_node = node.next
