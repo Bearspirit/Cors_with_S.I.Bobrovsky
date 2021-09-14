@@ -71,6 +71,24 @@ class TestLinkedListMethods(unittest.TestCase):
         self.assertIsNone(L6.head)
         self.assertIsNone(L6.tail)
 
+    def test_delete_all_nodes(self):
+        L6_1 = LinkedList()
+        n1 = Node(1)
+        n2 = Node(2)
+        n3 = Node(3)
+        n4 = Node(1)
+        n5 = Node(4)
+        n6 = Node(1)
+        L6_1.add_in_tail(n1)
+        L6_1.add_in_tail(n2)
+        L6_1.add_in_tail(n3)
+        L6_1.add_in_tail(n4)
+        L6_1.add_in_tail(n5)
+        L6_1.add_in_tail(n6)
+        L6_1.delete(1, all=True)
+        self.assertEqual(L6_1.head, n2)
+        self.assertEqual(L6_1.tail, n5)
+
     def test_delete_first_element(self):
         L7 = LinkedList()
         n1 = Node(1)
