@@ -206,5 +206,10 @@ class TestLinkedListMethods(unittest.TestCase):
         self.assertEqual(L16.head.next.next, n2)
         self.assertEqual(L16.tail, n2)
 
+    def test_insert_in_empty_llist(self):
+        L17 = LinkedList()
+        L17.insert(None, Node(1))
+        self.assertEqual(L17.head.value, 1)
+
 if __name__ == '__main__':
     unittest.main()
