@@ -21,6 +21,7 @@ class TestLinkedListMethods(unittest.TestCase):
         L2.delete(3)
         self.assertEqual(L2.head, L2.tail)
         self.assertEqual(L2.head.value, 1)
+        self.assertEqual(L2.tail.value, 1)
         self.assertIsNone(L2.head.next)
 
     def test_delete_head_element(self):
@@ -210,6 +211,9 @@ class TestLinkedListMethods(unittest.TestCase):
         L17 = LinkedList()
         L17.insert(None, Node(1))
         self.assertEqual(L17.head.value, 1)
+        self.assertEqual(L17.tail.value, 1)
+
+    
 
 if __name__ == '__main__':
     unittest.main()
