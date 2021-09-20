@@ -144,16 +144,3 @@ class LinkedList2:
             newNode.next = self.head
             self.head.prev = newNode
             self.head = newNode
-    
-"""
-LL2 = LinkedList2()
-n1 = Node(1)
-n2 = Node(2)
-n3 = Node(3)
-LL2.add_in_tail(n1)
-LL2.add_in_tail(n2)
-LL2.add_in_tail(n3)
-LL2.print_all_nodes()
-LL2.clean()
-LL2.print_all_nodes()
-"""
