@@ -120,6 +120,52 @@ class TestLinkedListMethods(unittest.TestCase):
         self.assertEqual(LL5.head.next, n2)
         self.assertEqual(LL5.tail.prev, n3)
 
+    def test_delete_all_elements_in_full_list(self):
+        LL5 = LinkedList2()
+        n1 = Node(1)
+        n2 = Node(1)
+        n3 = Node(1)
+        n4 = Node(1)
+        LL5.add_in_tail(n1)
+        LL5.add_in_tail(n2)
+        LL5.add_in_tail(n3)
+        LL5.add_in_tail(n4)
+        LL5.delete(1, all=True)
+        self.assertEqual(LL5.len(), 0)
+        self.assertEqual(LL5.head, None)
+        self.assertEqual(LL5.tail, None)
+
+    def test_delete_three_elements_from_four_head(self):
+        LL5 = LinkedList2()
+        n1 = Node(2)
+        n2 = Node(1)
+        n3 = Node(1)
+        n4 = Node(1)
+        LL5.add_in_tail(n1)
+        LL5.add_in_tail(n2)
+        LL5.add_in_tail(n3)
+        LL5.add_in_tail(n4)
+        LL5.delete(1, all=True)
+        self.assertEqual(LL5.len(), 1)
+        self.assertEqual(LL5.head, n1)
+        self.assertEqual(LL5.tail, n1)
+
+    def test_delete_three_elements_from_four_tail(self):
+        LL5 = LinkedList2()
+        n1 = Node(1)
+        n2 = Node(1)
+        n3 = Node(1)
+        n4 = Node(2)
+        LL5.add_in_tail(n1)
+        LL5.add_in_tail(n2)
+        LL5.add_in_tail(n3)
+        LL5.add_in_tail(n4)
+        LL5.delete(1, all=True)
+        self.assertEqual(LL5.len(), 1)
+        self.assertEqual(LL5.head, n4)
+        self.assertEqual(LL5.tail, n4)
+        
+
     def test_clean_fuction(self):
         LL6 = LinkedList2()
         n1 = Node(1)

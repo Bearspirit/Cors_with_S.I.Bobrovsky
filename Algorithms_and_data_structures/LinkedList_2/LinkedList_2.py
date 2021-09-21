@@ -80,7 +80,11 @@ class LinkedList2:
             if node.value == val:
                 if self.head is node:
                     self.head = node.next
-                    node.next.prev = None
+                    if node.next is not None:
+                        node.next.prev = None
+                    else:
+                        self.head = None
+                        self.tail = None
                 elif self.tail is node:
                     self.tail = node.prev
                     node.prev.next = None
