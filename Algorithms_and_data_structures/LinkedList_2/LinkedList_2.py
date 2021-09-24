@@ -123,9 +123,11 @@ class LinkedList2:
             while node is not None:
                 if node == afterNode:
                     if self.head is node:
-                        newNode.next = node.next
-                        newNode.prev = node
-                        node.next = newNode
+                        newNode.next = self.head.next   
+                        newNode.prev = self.head                     
+                        self.head.next = newNode
+                        if self.len() == 2:
+                            self.tail = newNode
                     elif self.tail is node:
                         self.tail.next = newNode
                         newNode.prev = self.tail
