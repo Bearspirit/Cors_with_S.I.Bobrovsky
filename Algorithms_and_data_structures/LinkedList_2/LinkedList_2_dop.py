@@ -93,9 +93,7 @@ class LinkedList2(DummyLinkedList):
                     DummyLinkedList.del_dummy(self, l)
                     break
                 node = node.next
-        
-        
-    
+          
     def len(self):
         node = self.head
         len_list = 0
