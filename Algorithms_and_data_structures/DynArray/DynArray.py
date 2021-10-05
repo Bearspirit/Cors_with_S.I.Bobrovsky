@@ -32,7 +32,36 @@ class DynArray:
         self.count += 1
 
     def insert(self, i, itm):
-        return None
+        if i != self.count:
+            self.__getitem__(i)
+        if self.count + 1 > self.capacity:
+            new_capacity = (2 * self.capacity)
+            self.resize(new_capacity)
+        new_array = self.make_array(self.capacity)
+        new_count = 0
+        for k in range(self.count+1):
+            if i == k:
+                new_array[k] = itm
+                continue
+            new_array[k] = self.array[new_count]
+            new_count += 1
+        self.array = new_array
+        self.count += 1
 
     def delete(self, i):
-        return None
+        self.__getitem__(i)
+        new_array = self.make_array(self.capacity)
+        count = 0
+        for j in range(self.count):
+            if j == i: 
+                continue
+            new_array[count] = self.array[j]
+            count += 1
+        self.array = new_array
+        self.count -= 1
+        if self.count < self.capacity // 2:
+            if int(self.capacity / 1.5) <= 16:
+                new_capacity = 16
+            else:
+                new_capacity = int(self.capacity / 1.5)
+            self.resize(new_capacity)
