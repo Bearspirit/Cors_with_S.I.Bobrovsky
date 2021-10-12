@@ -29,6 +29,4 @@ def proverka_skobok(skobki):
             if sk_stack.size() == 0:
                 return False
             sk_stack.pop()
-    if sk_stack.size() == 0:
-        return True
-    return False
+    return sk_stack.size() == 0
