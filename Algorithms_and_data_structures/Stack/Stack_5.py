@@ -22,15 +22,13 @@ class Stack:
 
 def proverka_skobok(skobki):
     sk_stack = Stack()
-    if (len(skobki) % 2 == 0) and (skobki[0] == "("):
-        for i in range(0, len(skobki)):
-            if skobki[i] == "(":
-                sk_stack.push(1)
-            else:
-                sk_stack.pop()
-        if sk_stack.size() == 0:
-            return True
+    for i in range(0, len(skobki)):
+        if skobki[i] == "(":
+            sk_stack.push(1)
         else:
-            return False
-    else:
-        return False
+            if sk_stack.size() == 0:
+                return False
+            sk_stack.pop()
+    if sk_stack.size() == 0:
+        return True
+    return False
