@@ -29,33 +29,22 @@ class OrderedList:
             self.tail = new_node
         else:
             if self.__ascending:
-                while node is not None:
-                    if self.compare(node.value, value) == +1:
-                        if node == self.head:
-                            new_node.next = self.head
-                            self.head.prev = new_node
-                            self.head = new_node
-                        else:
-                            node.prev.next = new_node
-                            new_node.prev = node.prev
-                            new_node.next = node
-                            node.prev = new_node
-                        return
-                    node = node.next
+                flag = +1
             else:
-                while node is not None:
-                    if self.compare(node.value, value) == -1:
-                        if node == self.head:
-                            new_node.next = self.head
-                            self.head.prev = new_node
-                            self.head = new_node
-                        else:
-                            node.prev.next = new_node
-                            new_node.prev = node.prev
-                            new_node.next = node
-                            node.prev = new_node
-                        return
-                    node = node.next
+                flag = -1
+            while node is not None:
+                if self.compare(node.value, value) == flag:
+                    if node == self.head:
+                        new_node.next = self.head
+                        self.head.prev = new_node
+                        self.head = new_node
+                    else:
+                        node.prev.next = new_node
+                        new_node.prev = node.prev
+                        new_node.next = node
+                        node.prev = new_node
+                    return
+                node = node.next
             self.tail.next = new_node
             new_node.prev = self.tail
             self.tail = new_node
@@ -66,19 +55,16 @@ class OrderedList:
     def find(self, val):
         node = self.head
         if self.__ascending:
-            while node is not None:
-                if node.value == val:
-                    return node
-                elif self.compare(node.value, val) == +1:
-                    return None
-                node = node.next
+            flag = +1
         else:
-            while node is not None:
-                if node.value == val:
-                    return node
-                elif self.compare(node.value, val) == -1:
-                    return None
-                node = node.next
+            flag = -1
+        while node is not None:
+            if node.value == val:
+                return node
+            elif self.compare(node.value, val) == flag:
+                return None
+            node = node.next
+        
 
 
     def delete(self, val):
