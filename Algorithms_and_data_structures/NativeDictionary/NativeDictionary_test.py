@@ -29,9 +29,8 @@ class TestOrderedListMethods(unittest.TestCase):
         ND = NativeDictionary(19)
         for i in range(0, ND.size):
             ND.put('key'+str(i), i)
-        self.assertEqual(ND.get('key0'), 0)
-        self.assertEqual(ND.get('key10'), 10)
-        self.assertEqual(ND.get('key18'), 18)
+        for k in range(0, ND.size):
+            self.assertEqual(ND.get('key'+str(k)), k)
         self.assertEqual(ND.get('key19'), None)
     
     def test_put_other_key_dict(self):
