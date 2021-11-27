@@ -1,8 +1,9 @@
-class NativeDictionary:
+class NativeCache:
     def __init__(self, sz):
         self.size = sz
         self.slots = [None] * self.size
         self.values = [None] * self.size
+        self.hits = [0] * self.size
 
     def hash_fun(self, key):
         return sum(key.encode('utf-8')) % self.size
@@ -10,15 +11,14 @@ class NativeDictionary:
         # всегда возвращает корректный индекс слота
 
     def is_key(self, key):
-        if key in self.slots:
-            return True
         # возвращает True если ключ имеется,
         # иначе False
-        return False
+        return key in self.slots
 
     def put(self, key, value):
         if self.is_key(key):
             self.values[self.slots.index(key)] = value
+            self.hits[self.slots.index(key)] += 1
         else:
             index = self.hash_fun(key)
             position_count = index
@@ -28,17 +28,23 @@ class NativeDictionary:
                 if self.slots[position_count] == None:
                     self.slots[position_count] = key
                     self.values[position_count] = value
+                    self.hits[position_count] = 0
                     break
                 position_count += step
                 if position_count > (self.size-1):
                     position_count -= self.size
                 iter_count -= 1
-
+        if key not in self.slots:
+            if min(self.hits) != (sum(self.hits)/len(self.hits)):
+                self.slots[self.hits.index(min(self.hits))] = key
+                self.values[self.hits.index(min(self.hits))] = value
+                self.hits[self.hits.index(min(self.hits))] = 0
         # гарантированно записываем 
         # значение value по ключу key
 
     def get(self, key):
         if self.is_key(key):
+            self.hits[self.slots.index(key)] += 1 #добавляем новое обращение к ключу
             return self.values[self.slots.index(key)]
         # возвращает value для key, 
         # или None если ключ не найден
