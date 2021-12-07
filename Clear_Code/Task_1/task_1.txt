@@ -1,7 +1,7 @@
 x - moto_distance 
 // пройденное мотоциклом расстояние
 
-sotr - employee_id 
+sotr - employee_id_list 
 // массив, содержащий номера сотрудников
 
 zarpl - salary_list 
