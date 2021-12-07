@@ -18,7 +18,7 @@ class NativeCache:
     def put(self, key, value):
         if self.is_key(key):
             self.values[self.slots.index(key)] = value
-            self.hits[self.slots.index(key)] += 1
+            self.hits[self.slots.index(key)] += 1 #увеличиваем количество обращений к ключу
         else:
             index = self.hash_fun(key)
             position_count = index
