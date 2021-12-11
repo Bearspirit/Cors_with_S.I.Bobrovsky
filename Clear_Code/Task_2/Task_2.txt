@@ -1,0 +1,54 @@
+6.1 Уровни абстракции:
+
+    fac - factorial_for_nuts_number
+    // информация о факториале числа орешков
+    
+    square_coord - size_of_squares_state
+    // размер Государства Квадратов
+    
+    attack_coord - occupied_territory
+    // захваченная территория, подвергшаяся аттаке
+    
+    result_list - starting_impuls_list
+    // массив содержит информацию о стартовом импульсе для старта корабля
+    
+    result_list - reordered_salary_list
+    // информация о переупорядоченном списке зарплат сотрудников
+    
+6.2 Технические термины из информатики:
+    
+    result - result_array
+    // массив, содержащий результирующую информацию по проведенному вычислению
+    
+    symbol_dict - dictionary_of_symbols
+    // словарь содержит наимеование и значение символов
+    
+    Line_sum - toner_rate_amount
+    // сумма расхода тонера по всем печатаемым символам
+    
+    cycle_iter - loop_iteration
+    // число итераций цикла
+    
+6.3 Имена, с учетом контекста:
+    
+    warrior_name 
+    //имя экземпляра класса Warrior
+    
+    car_battery_volume 
+    //емкость батареи экземпляра класса Car
+    
+    removed_value
+    // удаленное с помощью функции remove значение
+    
+6.4 Длина имен:
+
+    count - iteration_count
+    
+    sum - sum_of_odd_numbers
+    
+    name - employee_name
+    
+    time - elapsed_time
+    
+    max_sp - moto_max_speed
+    
