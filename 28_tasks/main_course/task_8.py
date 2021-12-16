@@ -46,21 +46,21 @@ def Unmanned(L, N, track):
                 if time <= track[i][1]:
                     time += track[i][1] - track[i][0]
                 else:
-                    cycle_iter = 0
+                    loop_iteration = 0
                     count = 0
-                    while cycle_iter < track[i][0]:
+                    while loop_iteration < track[i][0]:
                         if count % 2 == 0:
-                            cycle_iter += track[i][1]
+                            loop_iteration += track[i][1]
                             count += 1
                         else:
-                            cycle_iter += track[i][2]
+                            loop_iteration += track[i][2]
                             count += 1
-                    if (count % 2 == 1) and (cycle_iter != time):
+                    if (count % 2 == 1) and (loop_iteration != time):
                         if time%track[i][1] == 0:
                             time += track[i][1]
                         else:
                             time += (time%track[i][1])
-                    elif (count % 2 == 0) and (cycle_iter == time):
+                    elif (count % 2 == 0) and (loop_iteration == time):
                         time += track[i][1]
                     if N == 1:
                         time += L-track[i][0]
@@ -70,21 +70,21 @@ def Unmanned(L, N, track):
                 if track[i][0] >= L:
                     return L-track[i-1][0] + time
                 time = time + (track[i][0] - track[i-1][0])
-                cycle_iter = 0
+                loop_iteration = 0
                 count = 0
-                while cycle_iter < time:
+                while loop_iteration < time:
                     if count % 2 == 0:
-                        cycle_iter += track[i][1]
+                        loop_iteration += track[i][1]
                         count += 1
                     else:
-                        cycle_iter += track[i][2]
+                        loop_iteration += track[i][2]
                         count += 1
-                if (count % 2 == 1) and (cycle_iter != time):
+                if (count % 2 == 1) and (loop_iteration != time):
                     if time%track[i][1] == 0:
                         time += track[i][1]
                     else:
                         time += (time%track[i][1])
-                elif (count % 2 == 0) and (cycle_iter == time):
+                elif (count % 2 == 0) and (loop_iteration == time):
                     time += track[i][1]
         time += (L - track[-1][0])
         return time

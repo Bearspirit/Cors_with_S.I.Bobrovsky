@@ -29,27 +29,27 @@ bool white_walkers(string village)
 """
 
 def white_walkers(village):
-    list_vil = []
+    village_information_list = []
     for i in range(0, len(village)):
         if village[i].isdigit() == True:
-            list_vil.append(int(village[i]))
+            village_information_list.append(int(village[i]))
         elif village[i] == "=":
-            list_vil.append(village[i])
+            village_information_list.append(village[i])
     k = 0
     b = 0
-    for j in range(0, len(list_vil)-4):
-        if type(list_vil[j]) == int:
-            k += list_vil[j]
-            if type(list_vil[j+4]) == int:
-                k += list_vil[j+4]
+    for j in range(0, len(village_information_list)-4):
+        if type(village_information_list[j]) == int:
+            k += village_information_list[j]
+            if type(village_information_list[j+4]) == int:
+                k += village_information_list[j+4]
                 if k == 10:
                     b += 1
             k = 0
     midle_list = []
     num_of_couple = 0
-    for q in range(0, len(list_vil)):
-        if type(list_vil[q]) == int:
-            midle_list.append(list_vil[q])
+    for q in range(0, len(village_information_list)):
+        if type(village_information_list[q]) == int:
+            midle_list.append(village_information_list[q])
     for p in range(0, len(midle_list)-1):
         if (midle_list[p] + midle_list[p+1]) == 10:
             num_of_couple += 1

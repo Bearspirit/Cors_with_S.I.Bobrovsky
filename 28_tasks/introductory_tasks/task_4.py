@@ -22,15 +22,15 @@ int [] MadMax(int N, int [] Tele)
 """
 
 def MadMax(N, Tele):
-    result_list = []
+    starting_impuls_list = []
     Tele.sort()
     for i in range(0, N//2):
-        result_list.append(Tele[i])
-    result_list.append(Tele[-1])
+        starting_impuls_list.append(Tele[i])
+    starting_impuls_list.append(Tele[-1])
     Tele.remove(Tele[-1])
     Tele.reverse()
     for j in range(0, N//2):
-        result_list.append(Tele[j])
+        starting_impuls_list.append(Tele[j])
 
-    return result_list
+    return starting_impuls_list
 

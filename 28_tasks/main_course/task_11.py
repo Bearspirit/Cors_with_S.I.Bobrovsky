@@ -28,9 +28,9 @@ bool LineAnalysis(string line)
 получает на вход строку для анализа и возвращает логическое true/false, обозначающее корректность строки.
 """
 def LineAnalysis(line):
-    line_1 = line.lstrip("*")
-    line_1 = line_1.rstrip("*")
-    line_list = line_1.split("*")
+    string_for_analys = line.lstrip("*")
+    string_for_analys = string_for_analys.rstrip("*")
+    line_list = string_for_analys.split("*")
     if (line[0] != "*") or (line[-1] != "*"):
         return False
     elif (len(line_list) == 1) and ((len(line)- len(line_list[0]))%2 != 0) and (len(line) > 3):

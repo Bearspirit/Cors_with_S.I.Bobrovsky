@@ -31,32 +31,32 @@ string PatternUnlock(int N, int [] hits)
 """
 
 def PatternUnlock(N, hits):
-    num = 0
+    line_lenght = 0
     for i in range(0, N-1):
         if hits[i]+1 == hits[i+1]:
-            num += 1        
+            line_lenght += 1        
         elif hits[i]-1 == hits[i+1]:
-            num += 1
+            line_lenght += 1
         elif hits[i] == 6 and hits[i+1] == 1:
-            num += 1
+            line_lenght += 1
         elif (hits[i] == 1)  and (hits[i+1] == 6 or hits[i+1] == 9):
-            num += 1 
+            line_lenght += 1 
         elif hits[i] == 9 and hits[i+1] == 1:
-            num += 1
+            line_lenght += 1
         elif hits[i] == 5 and hits[i+1] == 2:
-            num += 1
+            line_lenght += 1
         elif (hits[i] == 2) and (hits[i+1] == 5 or hits[i+1] == 8):
-            num += 1
+            line_lenght += 1
         elif hits[i] == 8 and hits[i+1] == 2:
-            num += 1
+            line_lenght += 1
         elif hits[i] == 3 and hits[i+1] == 7:
-            num += 1
+            line_lenght += 1
         elif hits[i] == 7 and hits[i+1] == 3:
-            num += 1
+            line_lenght += 1
         else:
-            num += 1.41421356
+            line_lenght += 1.41421356
     
-    result =str(round(num, 5))
-    result = result.replace(".", "")
-    result = result.replace("0", "")
-    return result
+    hacking_code =str(round(line_lenght, 5))
+    hacking_code = hacking_code.replace(".", "")
+    hacking_code = hacking_code.replace("0", "")
+    return hacking_code

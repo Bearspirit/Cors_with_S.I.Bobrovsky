@@ -59,7 +59,7 @@ def Football(F, N):
     B = F[:]
     b = 0
     c = 0
-    flag = False
+    ordered_complete = False
     for j in range(0, len(F)-1):
         if F[j] > F[j+1]:
             b += j
@@ -69,12 +69,12 @@ def Football(F, N):
                     B[b],B[c] = B[c],B[b]
                     if B == A:
                         return True
-                    flag = True
+                    ordered_complete = True
                     break
-        if flag:
+        if ordered_complete:
             break
     
-    flag = False
+    ordered_complete = False
     B = []
     for g in range(0, len(F)-1):
         if F[g] > F[g+1]:
@@ -88,7 +88,7 @@ def Football(F, N):
                         B.append(F[k])
                     if B == A:
                         return True
-                    flag = True
+                    ordered_complete = True
                     break
                 elif h == (len(F)-2):
                     for i in range(0,g):
@@ -97,9 +97,9 @@ def Football(F, N):
                         B.append(F[j])
                     if B == A:
                         return True
-                    flag = True
+                    ordered_complete = True
                     break
-        if flag:
+        if ordered_complete:
             break
     
     return False

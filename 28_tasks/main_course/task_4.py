@@ -36,7 +36,7 @@ int PrintingCosts(string Line)
 """
 
 def PrintingCosts(Line):
-    symbol_dict = {" ":0, "&":24, ",":7, "2":22, "8":23, ">":10, "D":26,
+    dictionary_of_symbols = {" ":0, "&":24, ",":7, "2":22, "8":23, ">":10, "D":26,
     "J":18, "P":23, "V":19, "\\":10, "b":25, "h":21, "n":18, "t":17, "z":19,
     "!":9, "'":3, "-":7, "3":23, "9":26, "?":15, "E":26, "K":21, "Q":31,
     "W":26, "]":18, "c":17, "i":15, "o":20, "u":17, "{":18, '"':6, "(":12,
@@ -47,11 +47,11 @@ def PrintingCosts(Line):
     "H":25, "N":25, "T":16, "Z":22, "`":3, "f":18, "l":16, "r":13, "x":13,
     "~":9, "%":22, "+":13, "1":19, "7":16, "=":14, "C":20, "I":18, "O":26,
     "U":23, "[":18, "a":23, "g":30, "m":22, "s":21, "y":24}
-    Line_sum = 0
+    toner_rate_amount = 0
     for i in Line:
-        if i in symbol_dict:
-            Line_sum += symbol_dict[i]
+        if i in dictionary_of_symbols:
+            toner_rate_amount += dictionary_of_symbols[i]
         else:
-            Line_sum += 23
-    return Line_sum
+            toner_rate_amount += 23
+    return toner_rate_amount
     

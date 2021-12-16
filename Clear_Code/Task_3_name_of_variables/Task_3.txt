@@ -17,7 +17,7 @@
     
 6.2 Технические термины из информатики:
     
-    result - result_array
+    result - result_list
     // массив, содержащий результирующую информацию по проведенному вычислению
     
     symbol_dict - dictionary_of_symbols
@@ -44,7 +44,7 @@
 
     count - iteration_count
     
-    sum - sum_of_odd_numbers
+    num_sum - sum_of_odd_numbers
     
     name - employee_name
     

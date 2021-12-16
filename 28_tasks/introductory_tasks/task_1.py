@@ -4,11 +4,11 @@
 """
 
 def squirrel(N):
-    fac = 1
+    factorial_for_nuts_number = 1
     if N%1==0 and N >= 0:
         for i in range(1, N+1):
-            fac = i*fac
-        out = str(fac)
-        return int(out[0])
+            factorial_for_nuts_number = i*factorial_for_nuts_number
+        diamonds_amount = str(factorial_for_nuts_number)
+        return int(diamonds_amount[0])
     else:
         return False

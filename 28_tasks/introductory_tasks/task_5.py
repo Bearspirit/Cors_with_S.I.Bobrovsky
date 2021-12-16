@@ -30,20 +30,20 @@ int [] SynchronizingTables(int N, int [] ids, int [] salary)
 
 def SynchronizingTables(N, ids, salary):
     if len(ids) == N and len(salary) == N:
-        dict_1 = {}
-        sotr = ids.copy()
-        zarpl = salary.copy()
-        sotr.sort()
-        zarpl.sort()
-        result_list = []
+        according_dict = {}
+        employee_id_list = ids.copy()
+        salary_list = salary.copy()
+        employee_id_list.sort()
+        salary_list.sort()
+        reordered_salary_list = []
         i = 0
-        for num in sotr:
-            dict_1[num] = zarpl[i]
+        for num in employee_id_list:
+            according_dict[num] = salary_list[i]
             i += 1
         for k in ids:
-            result_list.append(dict_1[k])
+            reordered_salary_list.append(according_dict[k])
 
-        return result_list
+        return reordered_salary_list
     else:
         return False
 

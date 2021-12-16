@@ -37,55 +37,55 @@ int [] WordSearch(int len, string s, string subs)
 получает параметром len ширину выравнивания, саму строку в параметре s, и проверяемое слово в параметре subs.
 Возвращает функция массив целых чисел, содержащий 1 или 0 (признаки нахождения слова в соответствующей строке).
 """
-def WordSearch(num, s, subs):
-    text = ""
-    result = []
-    word_len = 0
+def WordSearch(alignment_lenght, s, subs):
+    sequence_of_lines = ""
+    searching_word_list = []
+    lenght_of_string = 0
     for i in s.split():
-        word_len += len(i)
-        if word_len == num:
-            text = text + i + "\n"
-            word_len = 0
-        elif word_len > num:
-            if len(i) >= num:
-                text = text + "\n" + i[0:num]
-                if len(i[num:len(i)+1]) <= num:
-                    text = text+ "\n" + i[num:len(i)+1]
-                    word_len = len(i[num:len(i)+1])
-                elif len(i[num:len(i)+1]) > num:
+        lenght_of_string += len(i)
+        if lenght_of_string == alignment_lenght:
+            sequence_of_lines = sequence_of_lines + i + "\n"
+            lenght_of_string = 0
+        elif lenght_of_string > alignment_lenght:
+            if len(i) >= alignment_lenght:
+                sequence_of_lines = sequence_of_lines + "\n" + i[0:alignment_lenght]
+                if len(i[alignment_lenght:len(i)+1]) <= alignment_lenght:
+                    sequence_of_lines = sequence_of_lines+ "\n" + i[alignment_lenght:len(i)+1]
+                    lenght_of_string = len(i[alignment_lenght:len(i)+1])
+                elif len(i[alignment_lenght:len(i)+1]) > alignment_lenght:
                     m = 0
-                    n = len(i[num:len(i)+1])
-                    k = 2*num
+                    n = len(i[alignment_lenght:len(i)+1])
+                    k = 2*alignment_lenght
                     while n > 0:
-                        text = text + "\n" + i[m+num:k]
-                        word_len = len(i[m+num:k])
-                        m = m + num
-                        k = k + num
-                        n = n - num
+                        sequence_of_lines = sequence_of_lines + "\n" + i[m+alignment_lenght:k]
+                        lenght_of_string = len(i[m+alignment_lenght:k])
+                        m = m + alignment_lenght
+                        k = k + alignment_lenght
+                        n = n - alignment_lenght
 
-            elif len(i) < num:
-                text = text + "\n" + i + " "
-                word_len = len(i) + 1
+            elif len(i) < alignment_lenght:
+                sequence_of_lines = sequence_of_lines + "\n" + i + " "
+                lenght_of_string = len(i) + 1
         else:
-            text = text + i + " "
-            word_len += 1
-        if word_len > num:
-            word_len = 0
+            sequence_of_lines = sequence_of_lines + i + " "
+            lenght_of_string += 1
+        if lenght_of_string > alignment_lenght:
+            lenght_of_string = 0
             
-    st_list = text.split("\n")
+    converted_list = sequence_of_lines.split("\n")
 
-    for line in st_list:
+    for line in converted_list:
         if len(line) == 0:
-            st_list.remove(line)
-    for words in st_list:
+            converted_list.remove(line)
+    for words in converted_list:
         k = 0
         for word in words.split():
             if word == subs:
                 k += 1
         if k > 0:
-            result.append(1)
+            searching_word_list.append(1)
         else:
-            result.append(0)
+            searching_word_list.append(0)
 
                        
-    return result
+    return searching_word_list

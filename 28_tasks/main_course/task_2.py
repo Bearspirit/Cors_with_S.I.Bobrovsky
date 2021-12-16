@@ -33,14 +33,14 @@ int SumOfThe(int N, int [] data)
 Возвращает функция целое число из сводки, которое равно сумме всех остальных чисел.
 """
 def SumOfThe(N, data):
-    list_1 = []
+    intermediate_list = []
     for i in data:
-        list_1.append(i)
+        intermediate_list.append(i)
     for k in range(0, N):
-        list_1.remove(list_1[k])
+        intermediate_list.remove(list_1[k])
         if data[k] == sum(list_1):
             return data[k]
-        list_1.insert(k, data[k])
+        intermediate_list.insert(k, data[k])
 
 
 

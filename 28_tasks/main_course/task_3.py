@@ -42,22 +42,22 @@ string TheRabbitsFoot(string s, bool encode)
 
 def TheRabbitsFoot(s, encode):
     if encode == True:
-        stroka = s.replace(" ", "")
+        string_without_spaces = s.replace(" ", "")
         result_str = ""
-        N = len(stroka)
-        a = int(N**0.5)
-        b = a + 1
-        if a*b < N:
-            a += 1
+        matrix_size = len(string_without_spaces)
+        number_of_lines = int(matrix_size**0.5)
+        number_of_columns = number_of_lines + 1
+        if number_of_lines*number_of_columns < matrix_size:
+            number_of_lines += 1
         line_list = []
         matrix_list = []
         prom_list = []
-        for i in range(0, N, b):
-            line_list.append(stroka[i:i+b])
+        for i in range(0, matrix_size, number_of_columns):
+            line_list.append(string_without_spaces[i:i+number_of_columns])
 
         if len(line_list[-1]) < len(line_list[0]):
-            for k in range(0, b):
-                for m in range(0, a-1):
+            for k in range(0, number_of_columns):
+                for m in range(0, number_of_lines-1):
                     prom_list.append(line_list[m][k])
                 matrix_list.append(prom_list)
                 prom_list = [] 
@@ -65,8 +65,8 @@ def TheRabbitsFoot(s, encode):
                 matrix_list[j].append(line_list[-1][j])           
 
         elif len(line_list[-1]) == len(line_list[0]):
-            for k in range(0, b):
-                for m in range(0, a):
+            for k in range(0, number_of_columns):
+                for m in range(0, number_of_lines):
                     prom_list.append(line_list[m][k])
                 matrix_list.append(prom_list)
                 prom_list = []

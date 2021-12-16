@@ -12,29 +12,29 @@ int ConquestCampaign(int N, int M, int L, int [] battalion)
 Возвращает функция день, начиная с 1, когда все области будут взяты под контроль.
 """
 def ConquestCampaign(N, M, L, battalion):
-    square_coord = []
-    attack_coord =[]
-    day = 1
+    size_of_squares_state = []
+    occupied_territory =[]
+    num_days_of_capture = 1
     for x in range(1, N+1):
         for y in range(1, M+1):
-            square_coord.append((x,y))
+            size_of_squares_state.append((x,y))
     for n in range(0, len(battalion), 2):
-        attack_coord.append((battalion[n], battalion[n+1]))
+        occupied_territory.append((battalion[n], battalion[n+1]))
               
-    if set(square_coord).issubset(attack_coord):
-        return day
+    if set(size_of_squares_state).issubset(occupied_territory):
+        return num_days_of_capture
     else:
         while True:
-            for m in range(0, len(attack_coord)):
-                if attack_coord[m][0]+1 <= N:
-                    attack_coord.append((attack_coord[m][0]+1, attack_coord[m][1]))
-                if attack_coord[m][0]-1 != 0:
-                    attack_coord.append((attack_coord[m][0]-1, attack_coord[m][1]))
-                if attack_coord[m][1]+1 <= M:
-                    attack_coord.append((attack_coord[m][0], attack_coord[m][1]+1))
-                if attack_coord[m][1]-1 != 0:
-                    attack_coord.append((attack_coord[m][0], attack_coord[m][1]-1))
-            day += 1
-            if set(square_coord).issubset(attack_coord):
-                return day
+            for m in range(0, len(occupied_territory)):
+                if occupied_territory[m][0]+1 <= N:
+                    occupied_territory.append((occupied_territory[m][0]+1, occupied_territory[m][1]))
+                if occupied_territory[m][0]-1 != 0:
+                    occupied_territory.append((occupied_territory[m][0]-1, occupied_territory[m][1]))
+                if occupied_territory[m][1]+1 <= M:
+                    occupied_territory.append((occupied_territory[m][0], occupied_territory[m][1]+1))
+                if occupied_territory[m][1]-1 != 0:
+                    occupied_territory.append((occupied_territory[m][0], occupied_territory[m][1]-1))
+            num_days_of_capture += 1
+            if set(size_of_squares_state).issubset(occupied_territory):
+                return num_days_of_capture
 
