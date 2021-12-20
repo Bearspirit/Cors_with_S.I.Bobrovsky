@@ -1,0 +1,35 @@
+make_shirt(size, text) - set_shirt_size(size)/set_shirt_text(text)
+// функция устанавливала размер и нанесенный на футболку текст
+
+city_country(city, country) - set_city(city)/set_country(country)
+// функция устанавливала название города и страну его расположения
+
+return_report - get_monthly_report 
+// функция формирует месячный отчет отдела продаж
+
+sandwiches - get_selected_sandwich
+// функция возвращает выбранный гостем ресторана сэндвич
+
+build_profile - set_users_profile
+// функция производит настройку профиля пользователя, согласно внесенным данным
+
+my_car - save_car_specific
+// функция сохраняет в базе характеристики вносимого в нее автомобиля
+
+print_models - get_car_models
+// функция возвращает внесенные в базу модели автомобилей
+
+delete_cars - clear_car_DB
+// функция очищает базу данных с автомобилями
+
+completed_models - get_complete_models
+// функция возвращает укомплектованные модели автомобилей
+
+shiped - is_shiped_car
+// функция проверяет имеет ли автомобиль статус "Отгружен"
+
+gen_doc - create_estimate
+// функция формирует калькуляцию стоимости указанного товара
+
+to_print - print_estimate
+// функция отправляет на печать калькуляцию стоимости товара
