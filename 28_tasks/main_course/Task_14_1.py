@@ -90,7 +90,14 @@ def BastShoe(command):
     global count_undo
     command_list = command.split(" ", maxsplit=1)
 
-    if command_list[0] == "1": 
+    ADD_STRING = '1'
+    DELETE_SYMBOLS = '2'
+    GET_SYMBOL = '3'
+    MAKE_UNDO = '4'
+    MAKE_REDO = '5'
+
+
+    if command_list[0] == ADD_STRING: 
         if len(deleted_elements) > 0:
             deleted_elements.clear()
             del string_list[:-1]
@@ -104,7 +111,7 @@ def BastShoe(command):
             string_list.append(string_list[-1] + command_list[1])
         return string_list[len(string_list)-1]
 
-    elif command_list[0] == "2":
+    elif command_list[0] == DELETE_SYMBOLS:
         if len(deleted_elements) > 0:
             deleted_elements.clear()
             del string_list[:-1]
@@ -122,7 +129,7 @@ def BastShoe(command):
             return string_list[-1]
 
 
-    elif command_list[0] == "3":
+    elif command_list[0] == GET_SYMBOL:
         if len(string_list) > 0:
             try:
                 return string_list[-1][int(command_list[1])]
@@ -131,7 +138,7 @@ def BastShoe(command):
         else:
             return ""
 
-    elif command_list[0] == "4":
+    elif command_list[0] == MAKE_UNDO:
         if count_undo == 1:
             if len(deleted_elements) == 0:
                 if len(string_list) > 1:
@@ -161,7 +168,7 @@ def BastShoe(command):
         else: #len(string_list) == 0:
             return ""
 
-    elif command_list[0] == "5":
+    elif command_list[0] == MAKE_REDO:
         if len(deleted_elements) == 0:
             return string_list[-1]
         elif len(deleted_elements) > 0:
