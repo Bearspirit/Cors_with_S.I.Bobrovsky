@@ -28,14 +28,24 @@ bool LineAnalysis(string line)
 получает на вход строку для анализа и возвращает логическое true/false, обозначающее корректность строки.
 """
 def LineAnalysis(line):
-    string_for_analys = line.lstrip("*")
-    string_for_analys = string_for_analys.rstrip("*")
-    line_list = string_for_analys.split("*")
-    if (line[0] != "*") or (line[-1] != "*"):
+    STAR = "*"
+    SPACE = ""
+    string_for_analys = line.lstrip(STAR)
+    string_for_analys = string_for_analys.rstrip(STAR)
+    line_list = string_for_analys.split(STAR)
+    
+    is_first_not_star = line[0] != STAR
+    is_last_not_star = line[-1] != STAR
+
+    ELEMENTS_LIST_LENGTH = len(line_list)
+    ORIGINAL_STRING_LENGTH = len(line)
+    FIRST_ELEMENT_LENGTH = len(line_list[0])
+
+    if is_first_not_star or is_last_not_star:
         return False
-    elif (len(line_list) == 1) and ((len(line)- len(line_list[0]))%2 != 0) and (len(line) > 3):
+    elif (ELEMENTS_LIST_LENGTH == 1) and ((ORIGINAL_STRING_LENGTH- FIRST_ELEMENT_LENGTH)%2 != 0) and (ORIGINAL_STRING_LENGTH > 3):
         return False
-    elif (len(line_list) == 1) and (line_list[0] == ""):
+    elif (ELEMENTS_LIST_LENGTH == 1) and (FIRST_ELEMENT_LENGTH == SPACE):
         return True
     else:
         count = 0
@@ -43,9 +53,9 @@ def LineAnalysis(line):
         for el in line_list:
             if el == line_list[0]:
                 count += 1
-            if el == "":
+            if el == SPACE:
                 empty_count += 1
-        if count == len(line_list):
+        if count == ELEMENTS_LIST_LENGTH:
             return True
         else:
             return False

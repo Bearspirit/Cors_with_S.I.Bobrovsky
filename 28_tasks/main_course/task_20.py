@@ -30,10 +30,11 @@ bool white_walkers(string village)
 
 def white_walkers(village):
     village_information_list = []
+    WHITE_WALKER = '='
     for i in range(0, len(village)):
         if village[i].isdigit() == True:
             village_information_list.append(int(village[i]))
-        elif village[i] == "=":
+        elif village[i] == WHITE_WALKER:
             village_information_list.append(village[i])
     k = 0
     b = 0

@@ -85,10 +85,13 @@ TreeOfLife(3,4, 12, [".+..","..+.",".+.."])
 
 def TreeOfLife(H, W, N, tree):
     tree_list = []
+    EMPTY_YEAR = '.'
+    NEW_BRANCH = '+'
+    DOUBLE_BRANCH = '++'
     for x in range(0, H):
         tree_list.append([])
         for i in range(0, W):
-            if tree[x][i] == ".":
+            if tree[x][i] == EMPTY_YEAR:
                 tree_list[x].append(0)
             else:
                 tree_list[x].append(1)
@@ -108,25 +111,25 @@ def TreeOfLife(H, W, N, tree):
                         continue
                     elif tree_list[k][g] >= 3:
                         if (k > 0) and (type(tree_list[k-1][g]) != str) and (tree_list[k-1][g] < 3):
-                            tree_list[k-1][g] = "++"
+                            tree_list[k-1][g] = DOUBLE_BRANCH
                         if (k < H-1) and (type(tree_list[k+1][g]) != str)  and (tree_list[k+1][g] < 3):
-                            tree_list[k+1][g] = "++"
+                            tree_list[k+1][g] = DOUBLE_BRANCH
                         if (g > 0) and (type(tree_list[k][g-1]) != str) and (tree_list[k][g-1] < 3):
-                            tree_list[k][g-1] = "++"
+                            tree_list[k][g-1] = DOUBLE_BRANCH
                         if (g < W-1) and (type(tree_list[k][g+1]) != str) and  (tree_list[k][g+1] < 3):
-                            tree_list[k][g+1] = "++"
+                            tree_list[k][g+1] = DOUBLE_BRANCH
                         
             for p in range(0, H):
                 for o in range(0, W):
-                    if (tree_list[p][o] == "++") or (tree_list[p][o] >= 3):
+                    if (tree_list[p][o] == DOUBLE_BRANCH) or (tree_list[p][o] >= 3):
                         tree_list[p][o] = 0
 
     for q in range(0, H):
         for w in range(0, W):
             if tree_list[q][w] == 0:
-                tree_list[q][w] = "."
+                tree_list[q][w] = EMPTY_YEAR
             else:
-                tree_list[q][w] = "+"
+                tree_list[q][w] = NEW_BRANCH
     result_list = []
     for el in tree_list:
         result_list.append("".join(el))

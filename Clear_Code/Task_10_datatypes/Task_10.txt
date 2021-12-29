@@ -1,0 +1,54 @@
+6. Правки кода:
+	
+	1. if N%1 == 0 and N > 0 - if is_positive and is_integer
+	// ввел логические переменные для улучшения читабельности кода:
+	is_positive = N > 0
+	is_integer = isinstance(N, int)
+	
+	2. Major_WIN = 'majority winner'
+	   MINOR_WIN = 'minority winner'
+	   NO_WIN = 'no winner'
+	// использование констант вместо магических строк
+	
+	3. STAR = '*'
+	// использование констант вместо магических строк
+	
+	4. if (line[0] != STAR) or (line[-1] != STAR) - if is_first_not_star or is_last_not_star
+	// ввел логические переменные для улучшения читабельности кода:
+	is_first_not_star = line[0] != STAR
+	is_last_not_star = line[-1] != STAR
+	
+	5. SPACE = ''
+	// использование констант вместо магических строк
+	
+	6. ELEMENTS_LIST_LENGTH = len(line_list)
+       ORIGINAL_STRING_LENGTH = len(line)
+       FIRST_ELEMENT_LENGTH = len(line_list[0])
+    // использование констант вместо магических чисел
+       
+	7. if 1 in midle_list/if 1 not in result_list - if ONE in midle_list/if ONE not in result_list
+	// заменил 1 в условии на константу, для лучшей наглядности
+	
+	8. EMPTY_YEAR = '.'
+       NEW_BRANCH = '+'
+       DOUBLE_BRANCH = '++'
+	// использование констант вместо магических строк
+	
+	9. modified_result = len(original_list)/len(modified_list) - 
+	   try:
+	       modified_result = len(original_list)/len(modified_list)
+	   except ZeroDivisionError:
+           return 'zero division'
+	// исключил появление ошибки деления на ноль
+	
+	10. if round(Votes[k]/sum(Votes)*100, 3) > 50 - if votes_ratio > 50
+	// упростил условие, присвоив переменной результат операции
+	   
+	11. try:
+	        votes = round(Votes[k]/sum(Votes)*100, 3)
+	    except ZeroDivisionError:
+            return 'zero division'
+	// исключил появление ошибки деления на ноль
+	
+	12. WHITE_WALLKER = '='
+	// использование констант вместо магических строк

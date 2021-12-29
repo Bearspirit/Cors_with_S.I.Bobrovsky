@@ -27,6 +27,7 @@ def SherlockValidString(der_parol):
     midle_dict = {}
     midle_list = []
     result_list = []
+    ONE = 1
 
     for i in range(0, len(der_parol)):
         main_list.append(der_parol[i])
@@ -35,7 +36,7 @@ def SherlockValidString(der_parol):
         midle_dict[symbol] = main_list.count(symbol)
     for value in midle_dict.values():
         midle_list.append(value)
-    if 1 in midle_list:
+    if ONE in midle_list:
         if midle_list.count(1) == 1:
             midle_list.remove(1)
     result_set = set(midle_list)
@@ -47,7 +48,7 @@ def SherlockValidString(der_parol):
     for sym in result_set:
         result_list.append(midle_list.count(sym))
     
-    if 1 not in result_list:
+    if ONE not in result_list:
         return False
     else:
         if abs(midle_list[0]-midle_list[1]) == 1:
