@@ -1,0 +1,153 @@
+6. Правки в код:
+	
+	1.Было:
+	result_str = ''
+	... (код)
+	for words in matrix_list:
+        res = "".join(words)
+		result_str += res + ' '
+	
+	Стало:
+	... (код)
+	result_str = ''
+	for words in matrix_list:
+        res = "".join(words)
+		result_str += res + ' '
+	// перенес инициализацию переменно ближе к месту ее использования
+	
+	2. Было:
+	matrix_list = []
+	prom_list = []
+	... (код)
+	prom_list.append(line_list[m][k])
+    matrix_list.append(prom_list)
+    
+    Стало:
+    ... (код)
+    matrix_list = []
+	prom_list = []
+	prom_list.append(line_list[m][k])
+    matrix_list.append(prom_list)
+    // перенес инициализацию переменно ближе к месту ее использования
+    
+    3. assert sum(Votes)>0
+       votes_ratio = round(Votes[k]/sum(Votes)*100, 3)
+    // включил в код проверку корректности знаменателя
+    
+    4. Было:
+    MAJOR_WIN = "majority winner"
+    MINOR_WIN = "minority winner"
+    ... (код)
+    output_message = MAJOR_WIN + " " + str(k+1)
+    output_message = MINOR_WIN + " " + str(k+1)
+    
+    Стало:
+    ... (код)
+    MAJOR_WIN = "majority winner"
+    MINOR_WIN = "minority winner"
+    output_message = MAJOR_WIN + " " + str(k+1)
+    output_message = MINOR_WIN + " " + str(k+1)
+    // перенес инициализацию переменно ближе к месту ее использования
+    
+    5. Было:
+    NO_WIN = "no winner"
+    ... (код)
+    output_message = NO_WIN
+    
+    Стало:
+    ... (код)
+    NO_WIN = "no winner"
+    output_message = NO_WIN
+    
+    6. Было:
+    sxtee = []
+    ... (код)
+    sxtee.append(b)
+    
+    Стало:
+    ... (код)
+    sxtee = []
+    sxtee.append(b)
+    // перенес инициализацию переменно ближе к месту ее использования
+    
+    7. assert time >= 0
+    return time
+    // включил в код проверку корректности значения переменной
+    
+    8. Было:
+    first_count = []
+    second_count = []
+    ... (код)
+    first_count.append(index[k].index(map_2[k]))
+    second_count.append(m)
+    
+    Стало:
+    ... (код)
+    first_count = []
+    second_count = []
+    first_count.append(index[k].index(map_2[k]))
+    second_count.append(m)
+    // перенес инициализацию переменно ближе к месту ее использования
+    
+    9. assert discount >= 0
+    return discount
+    // включил в код проверку корректности значения переменной
+    
+    10. string_for_analys = '***ERROR***'
+    // завершил работу с переменной, путем присвоения ей "недопустимого" значения
+    
+    11. Было:
+    is_first_not_star = line[0] != STAR
+    is_last_not_star = line[-1] != STAR
+    ...(код)
+    if is_first_not_star or is_last_not_star:
+        return False
+    
+    Стало:
+    ...(код)
+    is_first_not_star = line[0] != STAR
+    is_last_not_star = line[-1] != STAR
+    if is_first_not_star or is_last_not_star:
+        return False
+    // перенес инициализацию переменно ближе к месту ее использования
+    
+    11. Было:
+    sales_summary = []
+    ...(код)
+    for key, value in midle_dict.items():
+    	sales_summary.append(key + " " + str(value))
+    Стало:
+    ...(код)
+    sales_summary = []
+    for key, value in midle_dict.items():
+        sales_summary.append(key + " " + str(value))
+    // перенес инициализацию переменно ближе к месту ее использования
+    
+    12. Было:
+    sorted_tuple = ()
+    ...(код)
+    sorted_tuple = sorted(according_dict.items(), key=lambda item: (-item[1], item[0]))
+    
+    Стало:
+    ...(код)
+    sorted_tuple = ()
+    sorted_tuple = sorted(according_dict.items(), key=lambda item: (-item[1], item[0]))
+    // перенес инициализацию переменно ближе к месту ее использования
+    
+    13. sorted_tuple = None
+    // завершил работу с переменной, путем присвоения ей "недопустимого" значения
+    
+    14. assert current_speed >= 0
+    speed_relation = max_speed/current_speed
+    // включил в код проверку корректности значения переменной
+    
+    15. Было:
+    NEW_BRANCH = '+'
+    ...(код)
+    tree_list[q][w] = NEW_BRANCH
+    
+    Стало:
+    ...(код)
+    NEW_BRANCH = '+'
+    tree_list[q][w] = NEW_BRANCH
+    // перенес инициализацию переменно ближе к месту ее использования

@@ -37,14 +37,13 @@ minority winner 2
 """
 
 def MassVote(N, Votes):
-    #Votes_set = set(Votes)
-    MAJOR_WIN = "majority winner"
-    MINOR_WIN = "minority winner"
-    NO_WIN = "no winner"
     intermediate_list = []
     for i in Votes:
         intermediate_list.append(i)
+    MAJOR_WIN = "majority winner"
+    MINOR_WIN = "minority winner"
     for k in range(0, N):
+        assert sum(Votes)>0
         votes_ratio = round(Votes[k]/sum(Votes)*100, 3)
         if votes_ratio > 50:
             output_message = MAJOR_WIN + " " + str(k+1)
@@ -55,5 +54,6 @@ def MassVote(N, Votes):
                 output_message = MINOR_WIN + " " + str(k+1)
                 return output_message
             intermediate_list.insert(k, Votes[k])
+    NO_WIN = "no winner"
     output_message = NO_WIN
     return output_message

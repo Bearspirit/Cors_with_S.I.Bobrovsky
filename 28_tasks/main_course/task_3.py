@@ -43,18 +43,16 @@ string TheRabbitsFoot(string s, bool encode)
 def TheRabbitsFoot(s, encode):
     if encode == True:
         string_without_spaces = s.replace(" ", "")
-        result_str = ""
         matrix_size = len(string_without_spaces)
         number_of_lines = int(matrix_size**0.5)
         number_of_columns = number_of_lines + 1
         if number_of_lines*number_of_columns < matrix_size:
             number_of_lines += 1
         line_list = []
-        matrix_list = []
-        prom_list = []
         for i in range(0, matrix_size, number_of_columns):
             line_list.append(string_without_spaces[i:i+number_of_columns])
-
+        matrix_list = []
+        prom_list = []
         if len(line_list[-1]) < len(line_list[0]):
             for k in range(0, number_of_columns):
                 for m in range(0, number_of_lines-1):
@@ -70,6 +68,7 @@ def TheRabbitsFoot(s, encode):
                     prom_list.append(line_list[m][k])
                 matrix_list.append(prom_list)
                 prom_list = []
+        result_str = ""
         for words in matrix_list:
             res = "".join(words)
             result_str += res + " "

@@ -39,8 +39,6 @@ def TankRush(H1, W1, S1, H2, W2, S2):
     map_1 = S1.split()
     map_2 = S2.split()
     index = []
-    count_1 = []
-    count_2 = []
     for i in range(len(map_2)):
         for j in range(len(map_1)):
             try:
@@ -51,30 +49,32 @@ def TankRush(H1, W1, S1, H2, W2, S2):
                 continue
     if len(index) == 0:
         return False
+    first_count = []
+    second_count = []
     index = index[-len(map_2):]
     for k in range(len(index)):
         if index[k].count(map_2[k]) == 1:
-            count_1.append(index[k].index(map_2[k]))
+            first_count.append(index[k].index(map_2[k]))
         else:
             for m in range(0, len(index[k])):
                 try:
                     if index[k][m:m+len(map_2[k])] == map_2[k]:
-                        count_2.append(m)
+                        second_count.append(m)
                 except IndexError:
                     continue
-    if len(count_2) == 0:
-        if len(set(count_1)) == 1:
+    if len(second_count) == 0:
+        if len(set(first_count)) == 1:
             return True
         else:
             return False
-    elif len(count_2) > 0:
-        if len(count_1) == 0:
-            if len(set(count_2)) == 1:
+    elif len(second_count) > 0:
+        if len(first_count) == 0:
+            if len(set(second_count)) == 1:
                 return True
             else:
                 return False
         else:
-            for dig in count_2:
-                if dig in count_1:
+            for dig in second_count:
+                if dig in first_count:
                     return True
             return False  

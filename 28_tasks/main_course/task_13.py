@@ -32,22 +32,22 @@ string [] ShopOLAP(int N, string [] items)
 """
 
 def ShopOLAP(N, items):
-    result_list = []
-    midle_dict = {}  
-    sorted_tuple = ()
+    according_dict = {}  
     for i in range(0, N):
-        if  items[i].split()[0] in midle_dict:
-            midle_dict[items[i].split()[0]] = midle_dict[items[i].split()[0]] + int(items[i].split()[1])
+        if  items[i].split()[0] in according_dict:
+            according_dict[items[i].split()[0]] = according_dict[items[i].split()[0]] + int(items[i].split()[1])
             continue
-        midle_dict[items[i].split()[0]] = int(items[i].split()[1])
+        according_dict[items[i].split()[0]] = int(items[i].split()[1])
+    sorted_tuple = ()
+    sorted_tuple = sorted(according_dict.items(), key=lambda item: (-item[1], item[0]))
+
+    according_dict = dict(sorted_tuple)
+    sorted_tuple = None
     
-    sorted_tuple = sorted(midle_dict.items(), key=lambda item: (-item[1], item[0]))
+    sales_summary = []
+    for key, value in according_dict.items():
+        sales_summary.append(key + " " + str(value))
 
-    midle_dict = dict(sorted_tuple)
-
-    for key, value in midle_dict.items():
-        result_list.append(key + " " + str(value))
-
-    return result_list
+    return sales_summary
 
     

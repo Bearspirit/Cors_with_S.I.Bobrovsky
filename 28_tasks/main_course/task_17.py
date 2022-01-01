@@ -86,7 +86,6 @@ TreeOfLife(3,4, 12, [".+..","..+.",".+.."])
 def TreeOfLife(H, W, N, tree):
     tree_list = []
     EMPTY_YEAR = '.'
-    NEW_BRANCH = '+'
     DOUBLE_BRANCH = '++'
     for x in range(0, H):
         tree_list.append([])
@@ -123,7 +122,7 @@ def TreeOfLife(H, W, N, tree):
                 for o in range(0, W):
                     if (tree_list[p][o] == DOUBLE_BRANCH) or (tree_list[p][o] >= 3):
                         tree_list[p][o] = 0
-
+    NEW_BRANCH = '+'
     for q in range(0, H):
         for w in range(0, W):
             if tree_list[q][w] == 0:

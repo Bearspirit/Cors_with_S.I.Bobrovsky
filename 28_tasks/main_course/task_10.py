@@ -30,6 +30,7 @@ def MaximumDiscount(N, price):
     if len(price) >= 3:
         for i in range(2, len(price), 3):
             discount += price[i]   
+        assert discount >= 0
         return discount
     else:
         return discount
