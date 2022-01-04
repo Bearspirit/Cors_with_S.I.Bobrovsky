@@ -25,7 +25,7 @@ MatrixTurn(["123456", "234567", "345678", "456789"], 4,6, 3)
 
 def MatrixTurn(Matrix, M, N, T):
     matrix = []
-    midle_list = []
+    
     for i in range(0, M):
         matrix.append([])
         for j in range(0, N):
@@ -78,7 +78,8 @@ def MatrixTurn(Matrix, M, N, T):
                 prev = curr
 
             left += 1
-
+    
+    midle_list = []
     for j in range(0, len(matrix)):
         midle_list.append(''.join(matrix[j]))
 

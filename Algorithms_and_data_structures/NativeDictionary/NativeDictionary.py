@@ -2,7 +2,7 @@ class NativeDictionary:
     def __init__(self, sz):
         self.size = sz
         self.slots = [None] * self.size
-        self.values = [None] * self.size
+        self.__values = [None] * self.size
 
     def hash_fun(self, key):
         return sum(key.encode('utf-8')) % self.size
@@ -18,7 +18,7 @@ class NativeDictionary:
 
     def put(self, key, value):
         if self.is_key(key):
-            self.values[self.slots.index(key)] = value
+            self.__values[self.slots.index(key)] = value
         else:
             index = self.hash_fun(key)
             position_count = index
@@ -27,7 +27,7 @@ class NativeDictionary:
             while iter_count >= 0:
                 if self.slots[position_count] == None:
                     self.slots[position_count] = key
-                    self.values[position_count] = value
+                    self.__values[position_count] = value
                     break
                 position_count += step
                 if position_count > (self.size-1):
@@ -39,7 +39,7 @@ class NativeDictionary:
 
     def get(self, key):
         if self.is_key(key):
-            return self.values[self.slots.index(key)]
+            return self.__values[self.slots.index(key)]
         # возвращает value для key, 
         # или None если ключ не найден
         return None

@@ -72,9 +72,6 @@ def TheRabbitsFoot(s, encode):
         for words in matrix_list:
             res = "".join(words)
             result_str += res + " "
-        result_str.rstrip(" ")
-            
-
         return result_str.rstrip(" ")
     
     else:

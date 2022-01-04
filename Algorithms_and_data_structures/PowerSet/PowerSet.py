@@ -1,28 +1,28 @@
 class PowerSet():
 
     def __init__(self):
-        self.slots = []
+        self.__slots = []
         # ваша реализация хранилища
 
     def size(self):
-        return len(self.slots)
+        return len(self.__slots)
         # количество элементов в множестве
 
     def put(self, value):
-        if value not in self.slots:
-            self.slots.append(value)
+        if value not in self.__slots:
+            self.__slots.append(value)
         # всегда срабатывает
 
     def get(self, value):
-        if value in self.slots:
+        if value in self.__slots:
             return True
         # возвращает True если value имеется в множестве,
         # иначе False
         return False
 
     def remove(self, value):
-        if value in self.slots:
-            self.slots.pop(self.slots.index(value))
+        if value in self.__slots:
+            self.__slots.pop(self.__slots.index(value))
             return True
         # возвращает True если value удалено
         # иначе False
@@ -30,7 +30,7 @@ class PowerSet():
 
     def intersection(self, set2):
         cross_set = PowerSet()
-        for element in self.slots:
+        for element in self.__slots:
             if set2.get(element):
                 cross_set.put(element)
         return cross_set            
@@ -39,8 +39,8 @@ class PowerSet():
 
     def union(self, set2):
         union_set = PowerSet()
-        union_set.slots = self.slots.copy()
-        for element in set2.slots:
+        union_set.__slots = self.__slots.copy()
+        for element in set2.__slots:
             union_set.put(element)
     
         return union_set
@@ -48,15 +48,15 @@ class PowerSet():
 
     def difference(self, set2):
         diff_set = PowerSet()
-        diff_set.slots = self.slots.copy()
-        for element in set2.slots:
+        diff_set.slots = self.__slots.copy()
+        for element in set2.__slots:
             diff_set.remove(element)
         return diff_set
         # разница текущего множества и set2
 
 
     def issubset(self, set2):
-        for elements in set2.slots:
+        for elements in set2.__slots:
             if self.get(elements) == False:
                 return False
         # возвращает True, если set2 есть

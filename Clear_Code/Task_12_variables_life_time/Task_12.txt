@@ -1,0 +1,117 @@
+3. Правки в код:
+
+	1. Объявил переменные непосредственно перед участком кода, в котором они используются (сократил "окно уязвимости") и отделил участок кода дополнительными пустыми строками:
+	converted_list = sequence_of_lines.split("\n")
+    for line in converted_list:
+        if len(line) == 0:
+            converted_list.remove(line)
+    searching_word_list = []
+    for words in converted_list:
+        k = 0
+        for word in words.split():
+            if word == subs:
+                k += 1
+        if k > 0:
+            searching_word_list.append(1)
+        else:
+            searching_word_list.append(0)
+    return searching_word_list
+    
+    2. Объявил переменную непосредственно перед участком кода, в котором она используется (сократил "окно уязвимости") и отделил участок кода дополнительными пустыми строками:
+    result_str = ""
+        for words in matrix_list:
+            res = "".join(words)
+            result_str += res + " "
+        return result_str.rstrip(" ")
+        
+    3. Объявил переменную непосредственно перед участком кода, в котором она используется (сократил "окно уязвимости") и отделил участок кода дополнительными пустыми строками:
+    sxtee = []
+    for k in data:
+        num_16 = str(k)
+        num_str = num_16[::-1]
+        b = 0
+        for j in range(0, len(num_str)):
+            b += (16**j)*int(num_str[j])
+        sxtee.append(b)
+    return sxtee
+    
+    4. Объявил константу непосредственно перед участком кода, в котором она используется (сократил "окно уязвимости") и отделил участок кода дополнительными пустыми строками:
+    SPACE = ""
+    elif (ELEMENTS_LIST_LENGTH == 1) and (FIRST_ELEMENT_LENGTH == SPACE):
+        return True
+        
+    5. Объявил словарь непосредственно перед участком кода, в котором он используется (сократил "окно уязвимости") и отделил участок кода дополнительными пустыми строками:
+    midle_dict = {}
+    for symbol in elements_set:
+        midle_dict[symbol] = main_list.count(symbol)
+    for value in midle_dict.values():
+        midle_list.append(value)
+        
+    6. Объявил константу непосредственно перед участком кода, в котором она используется (сократил "окно уязвимости") и отделил участок кода дополнительными пустыми строками:
+    ONE = 1
+    if ONE in midle_list:
+        if midle_list.count(1) == 1:
+            midle_list.remove(1)
+    result_set = set(midle_list)
+    
+    7. Объявил список непосредственно перед участком кода, в котором он используется (сократил "окно уязвимости") и отделил участок кода дополнительными пустыми строками:
+    result_list = []
+    if len(result_set) == 1:
+        return True
+    elif len(result_set) > 2:
+        return False
+    for sym in result_set:
+        result_list.append(midle_list.count(sym))
+        
+    8. Объявил список непосредственно перед участком кода, в котором он используется (сократил "окно уязвимости") и отделил участок кода дополнительными пустыми строками:
+    midle_list = []
+    for j in range(0, len(matrix)):
+        midle_list.append(''.join(matrix[j]))
+        
+    9. Сделал self.bitarr_filter приватной переменной класса:
+    class BloomFilter:
+
+    def __init__(self, f_len):
+        self.filter_len = f_len
+        self.__bitarr_filter = 0
+    
+    10. Сделал self.array приватной переменной класса:
+    class DynArray:
+    
+    def __init__(self):
+        self.count = 0
+        self.capacity = 16
+        self.__array = self.make_array(self.capacity)
+    
+    11. Сделал self.slots приватной переменной класса:
+    class HashTable:
+    def __init__(self, sz, stp):
+        self.size = sz
+        self.step = stp
+        self.__slots = [None] * self.size
+        
+    12. Сделал self.hits приватной переменной класса:
+    class NativeCache:
+    def __init__(self, sz):
+        self.size = sz
+        self.slots = [None] * self.size
+        self.values = [None] * self.size
+        self.__hits = [0] * self.size
+        
+    13. Сделал self.values приватной переменной класса:
+    class NativeDictionary:
+    def __init__(self, sz):
+        self.size = sz
+        self.slots = [None] * self.size
+        self.__values = [None] * self.size
+        
+    14. Сделал self.slots приватной переменной класса:
+    class PowerSet():
+
+    def __init__(self):
+        self.__slots = []
+        
+    15. Сделал self.queue приватной переменной класса:
+    class Queue:
+    def __init__(self):
+        self.__queue = []

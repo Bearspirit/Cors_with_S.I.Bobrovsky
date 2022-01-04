@@ -2,7 +2,7 @@ class HashTable:
     def __init__(self, sz, stp):
         self.size = sz
         self.step = stp
-        self.slots = [None] * self.size
+        self.__slots = [None] * self.size
 
     def hash_fun(self, value):
         return sum(value.encode('utf-8')) % self.size
@@ -12,9 +12,9 @@ class HashTable:
         position_count = index
         iter_count = self.size
         while iter_count >= 0:
-            if self.slots[position_count] == None:
+            if self.__slots[position_count] == None:
                 return position_count
-            elif self.slots[position_count] == value:
+            elif self.__slots[position_count] == value:
                 return position_count
             else:
                 position_count += self.step
@@ -26,7 +26,7 @@ class HashTable:
 
     def put(self, value):
         if self.seek_slot(value) != None:
-            self.slots[self.seek_slot(value)] = value
+            self.__slots[self.seek_slot(value)] = value
             return self.seek_slot(value)
         return None
          # записываем значение по хэш-функции
@@ -38,7 +38,7 @@ class HashTable:
     def find(self, value):
         find_index = self.seek_slot(value)
         if find_index !=None:
-            if self.slots[find_index] == value:
+            if self.__slots[find_index] == value:
                 return find_index
          # находит индекс слота со значением, или None
         return None

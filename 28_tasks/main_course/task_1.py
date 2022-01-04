@@ -39,7 +39,6 @@ int [] WordSearch(int len, string s, string subs)
 """
 def WordSearch(alignment_lenght, s, subs):
     sequence_of_lines = ""
-    searching_word_list = []
     lenght_of_string = 0
     for i in s.split():
         lenght_of_string += len(i)
@@ -73,10 +72,10 @@ def WordSearch(alignment_lenght, s, subs):
             lenght_of_string = 0
             
     converted_list = sequence_of_lines.split("\n")
-
     for line in converted_list:
         if len(line) == 0:
             converted_list.remove(line)
+    searching_word_list = []
     for words in converted_list:
         k = 0
         for word in words.split():

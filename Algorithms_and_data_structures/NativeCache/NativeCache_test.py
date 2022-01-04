@@ -52,11 +52,11 @@ class TestOrderedListMethods(unittest.TestCase):
             iter_count -= 1
         NC.put('key44', 44)
         self.assertIsNone(NC.get('key44'))
-        self.assertEqual(NC.hits[NC.slots.index('key10')], 3)
+        self.assertEqual(NC.__hits[NC.slots.index('key10')], 3)
         for i in range(0, NC.size-1):
                 NC.get('key'+str(i))
-        self.assertEqual(NC.hits[NC.slots.index('key18')], 3)
-        self.assertEqual(NC.hits[NC.slots.index('key10')], 4)
+        self.assertEqual(NC.__hits[NC.slots.index('key18')], 3)
+        self.assertEqual(NC.__hits[NC.slots.index('key10')], 4)
 
     def test_replay(self):
         NC = NativeCache(19)
@@ -69,7 +69,7 @@ class TestOrderedListMethods(unittest.TestCase):
             iter_count -= 1
         NC.put('key44', 44)
         self.assertEqual(NC.get('key44'), 44)
-        self.assertEqual(NC.hits[NC.slots.index('key44')], 1)
+        self.assertEqual(NC.__hits[NC.slots.index('key44')], 1)
 
 
 if __name__ == '__main__':

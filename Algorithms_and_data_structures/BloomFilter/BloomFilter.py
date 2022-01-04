@@ -2,7 +2,7 @@ class BloomFilter:
 
     def __init__(self, f_len):
         self.filter_len = f_len
-        self.bitarr_filter = 0
+        self.__bitarr_filter = 0
         # создаём битовый массив длиной f_len ...
 
 
@@ -26,10 +26,10 @@ class BloomFilter:
         # ...
 
     def add(self, str1):
-        self.bitarr_filter = self.bitarr_filter | self.hash1(str1) | self.hash2(str1)
+        self.__bitarr_filter = self.__bitarr_filter | self.hash1(str1) | self.hash2(str1)
         # добавляем строку str1 в фильтр
 
     def is_value(self, str1):
         test_mask = self.hash1(str1) | self.hash2(str1)
-        return ((self.bitarr_filter & test_mask) == test_mask)
+        return ((self.__bitarr_filter & test_mask) == test_mask)
         # проверка, имеется ли строка str1 в фильтре
