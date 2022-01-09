@@ -30,12 +30,11 @@ def PrintingCosts(Line):
 3. Пример использования словаря, вместо списка: 
 
 for num in employee_id_list:
-            according_dict[num] = salary_list[i]
-            i += 1
-        for k in ids:
-            reordered_salary_list.append(according_dict[k])
-
-        return reordered_salary_list
+    according_dict[num] = salary_list[i]
+    i += 1
+for k in ids:
+    reordered_salary_list.append(according_dict[k])
+return reordered_salary_list
         
 4. Пример использования списка с обращением к элементам без прямой индексации:
 
