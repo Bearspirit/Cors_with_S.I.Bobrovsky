@@ -37,8 +37,8 @@ def SumOfThe(N, data):
     for i in data:
         intermediate_list.append(i)
     for k in range(0, N):
-        intermediate_list.remove(list_1[k])
-        if data[k] == sum(list_1):
+        intermediate_list.remove(intermediate_list[k])
+        if data[k] == sum(intermediate_list):
             return data[k]
         intermediate_list.insert(k, data[k])
 
