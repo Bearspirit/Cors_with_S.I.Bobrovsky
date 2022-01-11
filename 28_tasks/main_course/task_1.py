@@ -41,8 +41,8 @@ def WordSearch(alignment_lenght, s, subs):
     sequence_of_lines = ""
     lenght_of_string = 0
     for i in s.split():
-        lenght_of_string += len(i)
-        if lenght_of_string == alignment_lenght:
+        lenght_of_string += len(i) 
+        if lenght_of_string == alignment_lenght: 
             sequence_of_lines = sequence_of_lines + i + "\n"
             lenght_of_string = 0
         elif lenght_of_string > alignment_lenght:
@@ -51,11 +51,11 @@ def WordSearch(alignment_lenght, s, subs):
                 if len(i[alignment_lenght:len(i)+1]) <= alignment_lenght:
                     sequence_of_lines = sequence_of_lines+ "\n" + i[alignment_lenght:len(i)+1]
                     lenght_of_string = len(i[alignment_lenght:len(i)+1])
-                elif len(i[alignment_lenght:len(i)+1]) > alignment_lenght:
+                elif len(i[alignment_lenght:len(i)+1]) > alignment_lenght: #если длина текущего слова сильно превышает ширину выравнивания
                     m = 0
                     n = len(i[alignment_lenght:len(i)+1])
                     k = 2*alignment_lenght
-                    while n > 0:
+                    while n > 0: #проходим циклом по отрезкам слова, равным длине выравнивания, для записи каждого отрезка в отдельную строку
                         sequence_of_lines = sequence_of_lines + "\n" + i[m+alignment_lenght:k]
                         lenght_of_string = len(i[m+alignment_lenght:k])
                         m = m + alignment_lenght

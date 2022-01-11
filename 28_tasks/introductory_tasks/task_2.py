@@ -15,9 +15,9 @@ int odometer(int [] oksana)
 
 def odometer(massive):
     if len(massive) >= 2:
-        multiplicat_result = massive[0] * massive[1]
-        for i in range(2, len(massive), 2):
-            multiplicat_result = (massive[i] * (massive[i+1] - massive[i-1])) + multiplicat_result
+        multiplicat_result = massive[0] * massive[1] #вычисляем расстояние, пройденное за первый отрезок времени
+        for i in range(2, len(massive), 2): #проходим циклом по каждому отрезку
+            multiplicat_result = (massive[i] * (massive[i+1] - massive[i-1])) + multiplicat_result #время, за которое пройден отрезок вычисляется путем разницы текущего времени и времени, за которое пройден предыдущий отрезок
         return multiplicat_result
     else:
         return False

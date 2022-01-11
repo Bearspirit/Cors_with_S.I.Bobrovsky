@@ -77,7 +77,7 @@ def TheRabbitsFoot(s, encode):
     else:
         string_list = s.split()
         decode_string = ""
-        try:
+        try: #ловим исключение по индексу, так как последнее слово в в строке для дешифровки по длине может отличаться от остальных
             for k in range(0, len(string_list[0])):
                 for m in range(0, len(string_list)):
                     decode_string += string_list[m][k]

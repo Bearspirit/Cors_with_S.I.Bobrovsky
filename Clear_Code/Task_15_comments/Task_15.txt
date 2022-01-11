@@ -1,0 +1,103 @@
+3.1:
+1. def odometer(massive):
+    if len(massive) >= 2:
+        multiplicat_result = massive[0] * massive[1] 
+        for i in range(2, len(massive), 2): 
+            multiplicat_result = (massive[i] * (massive[i+1] - massive[i-1])) + multiplicat_result #время, за которое пройден отрезок вычисляется путем разницы текущего времени и времени, за которое пройден предыдущий отрезок
+        return multiplicat_result
+    else:
+        return False
+        
+2. elif len(i[alignment_lenght:len(i)+1]) > alignment_lenght: #если длина текущего слова сильно превышает ширину выравнивания
+       m = 0
+       n = len(i[alignment_lenght:len(i)+1])
+       k = 2*alignment_lenght
+       while n > 0: #проходим циклом по отрезкам слова, равным длине выравнивания, для записи каждого отрезка в отдельную строку
+           sequence_of_lines = sequence_of_lines + "\n" + i[m+alignment_lenght:k]
+           lenght_of_string = len(i[m+alignment_lenght:k])
+           m = m + alignment_lenght
+           k = k + alignment_lenght
+           n = n - alignment_lenght
+           
+3. string_list = s.split()
+   decode_string = ""
+   try: #ловим исключение по индексу, так как последнее слово в в строке для дешифровки по длине может отличаться от остальных
+      for k in range(0, len(string_list[0])):
+          for m in range(0, len(string_list)):
+              decode_string += string_list[m][k]
+   except (IndexError):
+      pass
+    
+   return decode_string
+   
+4. for i in Line:
+       if i in dictionary_of_symbols:
+           toner_rate_amount += dictionary_of_symbols[i]
+       else:
+           toner_rate_amount += 23 #в случае, если символ не учтен в документации
+           
+5. for x in data:
+       num_8 = str(x)
+       num_str = num_8[::-1] #разворачиваем строковое представление числа в обратный порядок
+       a = 0
+       for i in range(0, len(num_str)):
+           a += (8**i)*int(num_str[i]) #i-соответствует разряду числа, для чего на прощлом этапе число было перевернуто
+           octo.append(a)
+           
+6. for i in range(0, N):
+       if  items[i].split()[0] in according_dict: #если название товара повторяется
+           according_dict[items[i].split()[0]] = according_dict[items[i].split()[0]] + int(items[i].split()[1]) #то суммируем количество товара
+           
+7. ONE = 1
+   if ONE in midle_list: 
+       if midle_list.count(1) == 1:
+           midle_list.remove(1) #если буква встречается единожды, мы можем ее исключить, чтобы она не мешала проверять строку на валидность 
+    result_set = set(midle_list)
+    
+3.2:
+1. Код из сети:
+# Создадим список месяцев
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul','Aug','Sep','Oct','Nov','Dec']
+Предлагаю:
+months_list = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                'Jul','Aug','Sep','Oct','Nov','Dec']
+2. Код из сети:
+# Функция вывода календарных месяцев
+def showCalender(months):
+    # Цикл for проходит по списку и вводит название каждого месяца
+    for month in months:
+        print(month)
+Предлагаю:
+def get_monts(months_list):
+    for month in months_list:
+        print(month)
+
+3. Код из сети:
+b = 5 #длина основания треугольника
+Предлагаю:
+triangle_base_length = 5
+
+4-5. def put(self, key, value):
+        if self.is_key(key):
+            self.values[self.slots.index(key)] = value
+            self.__hits[self.slots.index(key)] += 1 #увеличиваем количество обращений к ключу
+   ...
+   def get(self, key):
+        if self.is_key(key):
+            self.__hits[self.slots.index(key)] += 1 #добавляем новое обращение к ключу
+            
+Предлгаю для увеличения количества обращений ввестиновую функцию:
+
+def add_key_one_call(self, key):
+	self.__hits[self.slots.index(key)] += 1
+	
+def put(self, key, value):
+     if self.is_key(key):
+        self.values[self.slots.index(key)] = value
+        self.add_key_one_call(key)
+   		...
+def get(self, key):
+     if self.is_key(key):
+         self.add_key_one_call(key)
+

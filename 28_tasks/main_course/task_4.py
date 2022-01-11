@@ -52,6 +52,6 @@ def PrintingCosts(Line):
         if i in dictionary_of_symbols:
             toner_rate_amount += dictionary_of_symbols[i]
         else:
-            toner_rate_amount += 23
+            toner_rate_amount += 23 #в случае, если символ не учтен в документации
     return toner_rate_amount
     

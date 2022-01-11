@@ -34,8 +34,8 @@ string [] ShopOLAP(int N, string [] items)
 def ShopOLAP(N, items):
     according_dict = {}  
     for i in range(0, N):
-        if  items[i].split()[0] in according_dict:
-            according_dict[items[i].split()[0]] = according_dict[items[i].split()[0]] + int(items[i].split()[1])
+        if  items[i].split()[0] in according_dict: #если название товара повторяется
+            according_dict[items[i].split()[0]] = according_dict[items[i].split()[0]] + int(items[i].split()[1]) #то суммируем количество товара
             continue
         according_dict[items[i].split()[0]] = int(items[i].split()[1])
     sorted_tuple = ()

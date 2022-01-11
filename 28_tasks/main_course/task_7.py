@@ -23,10 +23,10 @@ def UFO(N, data, octal):
         octo = []
         for x in data:
             num_8 = str(x)
-            num_str = num_8[::-1]
+            num_str = num_8[::-1] #разворачиваем строковое представление числа в обратный порядок
             a = 0
             for i in range(0, len(num_str)):
-                a += (8**i)*int(num_str[i])
+                a += (8**i)*int(num_str[i]) #i-соответствует разряду числа, для чего на прощлом этапе число было перевернуто
             octo.append(a)
         return octo
     if octal == False:

@@ -37,9 +37,9 @@ def SherlockValidString(der_parol):
         midle_list.append(value)
 
     ONE = 1
-    if ONE in midle_list:
+    if ONE in midle_list: 
         if midle_list.count(1) == 1:
-            midle_list.remove(1)
+            midle_list.remove(1) #если буква встречается единожды, мы можем ее исключить, чтобы она не мешала проверять строку на валидность 
     result_set = set(midle_list)
 
     result_list = []
