@@ -30,7 +30,7 @@ def MaximumDiscount(N, price):
     if len(price) >= 3:
         for i in range(2, len(price), 3):
             discount += price[i]   
-        assert discount >= 0
+        assert discount >= 0 #TODO - в данный момент исключаем применения отрицательной скидки (наценки), реализация будет возможна после утверждения клиентского соглашения
         return discount
     else:
         return discount

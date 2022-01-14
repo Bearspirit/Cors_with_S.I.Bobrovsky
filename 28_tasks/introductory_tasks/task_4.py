@@ -26,11 +26,10 @@ def MadMax(N, Tele):
     Tele.sort()
     for i in range(0, N//2):
         starting_impuls_list.append(Tele[i])
-    starting_impuls_list.append(Tele[-1])
+    starting_impuls_list.append(Tele[-1]) #добавляем максимальное значение исходного массива в расчетную середнину результирующего массива
     Tele.remove(Tele[-1])
     Tele.reverse()
     for j in range(0, N//2):
         starting_impuls_list.append(Tele[j])
-
     return starting_impuls_list
 

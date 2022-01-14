@@ -11,7 +11,7 @@ class DynArray:
         return self.count
 
     def make_array(self, new_capacity):
-        return (new_capacity * ctypes.py_object)()
+        return (new_capacity * ctypes.py_object)() #формируем блок памяти нужной ёмкости, хранящий элементы PyObject
 
     def __getitem__(self,i):
         if i < 0 or i >= self.count:

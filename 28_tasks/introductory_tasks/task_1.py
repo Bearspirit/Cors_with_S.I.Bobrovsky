@@ -11,6 +11,6 @@ def squirrel(N):
         for i in range(1, N+1):
             factorial_for_nuts_number = i*factorial_for_nuts_number
         diamonds_amount = str(factorial_for_nuts_number)
-        return int(diamonds_amount[0])
+        return int(diamonds_amount[0]) #возвращаем количество алмазов
     else:
         return False

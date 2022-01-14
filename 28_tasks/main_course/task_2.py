@@ -33,7 +33,7 @@ int SumOfThe(int N, int [] data)
 Возвращает функция целое число из сводки, которое равно сумме всех остальных чисел.
 """
 def SumOfThe(N, data):
-    intermediate_list = []
+    intermediate_list = [] #важно предусмотреть промежуточный список, для исключения изменения в исходном списке с данными
     for i in data:
         intermediate_list.append(i)
     for k in range(0, N):

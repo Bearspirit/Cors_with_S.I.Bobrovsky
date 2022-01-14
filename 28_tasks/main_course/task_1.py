@@ -38,7 +38,7 @@ int [] WordSearch(int len, string s, string subs)
 Возвращает функция массив целых чисел, содержащий 1 или 0 (признаки нахождения слова в соответствующей строке).
 """
 def WordSearch(alignment_lenght, s, subs):
-    sequence_of_lines = ""
+    sequence_of_lines = "" #важно инициализировать пустую строку, для корректного составления требуемого формата 
     lenght_of_string = 0
     for i in s.split():
         lenght_of_string += len(i) 
@@ -82,7 +82,7 @@ def WordSearch(alignment_lenght, s, subs):
             if word == subs:
                 k += 1
         if k > 0:
-            searching_word_list.append(1)
+            searching_word_list.append(1) #не изменять добавляемы символ, иначе следующая функция будет выдавать некорректный результат
         else:
             searching_word_list.append(0)
 

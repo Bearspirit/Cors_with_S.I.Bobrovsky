@@ -95,6 +95,7 @@ def BastShoe(command):
     GET_SYMBOL = '3'
     MAKE_UNDO = '4'
     MAKE_REDO = '5'
+    #в данной реализации предусмотрены 5 комманд, в дальнейшем возможно расширение функционала
 
 
     if command_list[0] == ADD_STRING: 

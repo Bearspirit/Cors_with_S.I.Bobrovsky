@@ -1,0 +1,92 @@
+7.1 Информативный комментарий:
+def squirrel(N):
+    factorial_for_nuts_number = 1
+    is_positive = N >= 0
+    is_integer = isinstance(N,int)
+    if is_integer and is_positive:
+        for i in range(1, N+1):
+            factorial_for_nuts_number = i*factorial_for_nuts_number
+        diamonds_amount = str(factorial_for_nuts_number)
+        return int(diamonds_amount[0]) #возвращаем количество алмазов
+    else:
+        return False
+        
+7.2 Информативный комментарий:
+def odometer(massive):
+    if len(massive) >= 2:
+        multiplicat_result = massive[0] * massive[1] 
+        for i in range(2, len(massive), 2): 
+            multiplicat_result = (massive[i] * (massive[i+1] - massive[i-1])) + multiplicat_result  
+        return multiplicat_result #возвращаем пройденное мотоциклом расстояние
+    else:
+        return False
+        
+7.3 Представление намерений:
+def ConquestCampaign(N, M, L, battalion):
+    size_of_squares_state = []
+    occupied_territory =[]
+    num_days_of_capture = 1
+    for x in range(1, N+1):
+        for y in range(1, M+1):
+            size_of_squares_state.append((x,y))
+    for n in range(0, len(battalion), 2):
+        occupied_territory.append((battalion[n], battalion[n+1]))   
+    if set(size_of_squares_state).issubset(occupied_territory): #производим проверку, все ли области взяты под контроль   
+        return num_days_of_capture
+    ...
+
+7.4 Представление намерений:
+def MadMax(N, Tele):
+    starting_impuls_list = []
+    Tele.sort()
+    for i in range(0, N//2):
+        starting_impuls_list.append(Tele[i])
+    starting_impuls_list.append(Tele[-1]) #добавляем максимальное значение исходного массива в расчетную середнину результирующего массива
+    Tele.remove(Tele[-1])
+    Tele.reverse()
+    for j in range(0, N//2):
+        starting_impuls_list.append(Tele[j])
+    return starting_impuls_list
+
+7.5 Прояснение:
+def make_array(self, new_capacity):
+        return (new_capacity * ctypes.py_object)() #формируем блок памяти нужной ёмкости, хранящий элементы PyObject
+
+7.6 Прояснение:
+else:
+            line_lenght += 1.41421356 #добавляем длину линии между ближайшими цифрами по диагонали (равное корню из 2)
+            
+7.7 Предупреждение о последствиях:
+def test_proverka_random(self): #!!!обрати внимание, тест занимает значительное время
+        for i in range(1000000):
+            a = string_gen(random.randint(10, 50))
+            b = string_gen(random.randint(0, 5))
+            self.assertEqual(func(a, b), b in a) 
+            
+7.8 Предупреждение о последствиях:
+if k > 0:
+    searching_word_list.append(1) #не изменять добавляемы символ, иначе следующая функция будет выдавать некорректный результат
+else:
+    searching_word_list.append(0)
+    
+7.9 Усиление:
+sequence_of_lines = "" #важно инициализировать пустую строку, для корректного составления требуемого формата
+
+7.10 Усиление:
+intermediate_list = [] #важно предусмотреть промежуточный список, для исключения изменения в исходном списке с данными
+
+7.11 Комментарии TODO
+if len(price) >= 3:
+    for i in range(2, len(price), 3):
+        discount += price[i]   
+    assert discount >= 0 #TODO - в настоящее время исключаем применения отрицательной скидки (наценки), реализация будет возможна после утверждения клиентского соглашения
+    return discount
+    
+7.12 Комментарий TODO:
+ADD_STRING = '1'
+DELETE_SYMBOLS = '2'
+GET_SYMBOL = '3'
+MAKE_UNDO = '4'
+MAKE_REDO = '5'
+#в данной реализации доступны 5 комманд, в дальнейшем возможно расширение функционала
+

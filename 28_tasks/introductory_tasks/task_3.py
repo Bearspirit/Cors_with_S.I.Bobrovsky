@@ -20,7 +20,7 @@ def ConquestCampaign(N, M, L, battalion):
             size_of_squares_state.append((x,y))
     for n in range(0, len(battalion), 2):
         occupied_territory.append((battalion[n], battalion[n+1]))
-              
+    #проверяем, все ли области взяты под контроль      
     if set(size_of_squares_state).issubset(occupied_territory):
         return num_days_of_capture
     else:

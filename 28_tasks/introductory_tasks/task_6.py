@@ -54,7 +54,7 @@ def PatternUnlock(N, hits):
         elif hits[i] == 7 and hits[i+1] == 3:
             line_lenght += 1
         else:
-            line_lenght += 1.41421356
+            line_lenght += 1.41421356 #добавляем длину линии между ближайшими цифрами по диагонали (равное корню из 2)
     
     hacking_code =str(round(line_lenght, 5))
     hacking_code = hacking_code.replace(".", "")
