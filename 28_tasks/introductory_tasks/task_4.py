@@ -24,7 +24,8 @@ int [] MadMax(int N, int [] Tele)
 def MadMax(N, Tele):
     starting_impuls_list = []
     Tele.sort()
-    for i in range(0, N//2):
+    for i in range(0, N//2): #формируем стартовый импульс путем добавления по возрастанию первой половины исходного массива, 
+                             #с добавлением максимума, потом по убыванию добавляем вторую половину исходного массива
         starting_impuls_list.append(Tele[i])
     starting_impuls_list.append(Tele[-1]) #добавляем максимальное значение исходного массива в расчетную середнину результирующего массива
     Tele.remove(Tele[-1])

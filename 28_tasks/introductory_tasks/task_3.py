@@ -18,7 +18,7 @@ def ConquestCampaign(N, M, L, battalion):
     for x in range(1, N+1):
         for y in range(1, M+1):
             size_of_squares_state.append((x,y))
-    for n in range(0, len(battalion), 2):
+    for n in range(0, len(battalion), 2): #осуществляем захват территории
         occupied_territory.append((battalion[n], battalion[n+1]))
     #проверяем, все ли области взяты под контроль      
     if set(size_of_squares_state).issubset(occupied_territory):

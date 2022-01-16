@@ -38,11 +38,10 @@ def SynchronizingTables(N, ids, salary):
         reordered_salary_list = []
         i = 0
         for num in employee_id_list:
-            according_dict[num] = salary_list[i]
+            according_dict[num] = salary_list[i] #устанавливаем соответствие между сотрудниками и зарплатами
             i += 1
         for k in ids:
             reordered_salary_list.append(according_dict[k])
-
         return reordered_salary_list
     else:
         return False

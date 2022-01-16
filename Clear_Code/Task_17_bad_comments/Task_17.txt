@@ -1,0 +1,99 @@
+13.1 Неочевидные комментарии:
+for n in range(0, len(battalion), 2): #формируем список
+        occupied_territory.append((battalion[n], battalion[n+1]))
+
+for n in range(0, len(battalion), 2): #осуществляем захват территории
+        occupied_territory.append((battalion[n], battalion[n+1]))
+
+13.2 Бормотание:
+for i in range(0, N//2): #первая половина
+        starting_impuls_list.append(Tele[i])
+
+for i in range(0, N//2): #формируем стартовый импульс путем добавления по возрастанию первой половины исходного массива, 
+                             #с добавлением максимума, потом по убыванию добавляем вторую половину исходного массива
+        starting_impuls_list.append(Tele[i])
+        
+13.3 Недостоверные комментарии:
+for num in employee_id_list:
+            according_dict[num] = salary_list[i] #выравнием зарплаты
+
+for num in employee_id_list:
+            according_dict[num] = salary_list[i] #устанавливаем соответствие между сотрудниками и зарплатами
+
+13.4 Шум:
+def PatternUnlock(N, hits):
+    line_lenght = 0 #изначально длина линии равна 0
+
+Комментарий удален
+
+13.5 Избыточные комментарии:
+def addFront(self, item): #добавляем в начало
+        self.deque.insert(0,item)
+
+Комментарий удален
+
+13.6 Обязательные комментарии:
+if set(size_of_squares_state).issubset(occupied_territory):
+                return num_days_of_capture #возвращаем количество дней, затраченных на захват территории
+                
+Комментарий удален
+
+13.7 Обязательные комментарии:
+for j in range(0, N//2):
+        starting_impuls_list.append(Tele[j])
+    return starting_impuls_list #возвращаем массив импульс
+    
+Комментарий удален
+
+13.8 Обязательные комментарии:
+for k in ids:
+            reordered_salary_list.append(according_dict[k])
+        return reordered_salary_list #возвращаем массив с упорядоченными зарплатами
+        
+13.9 Обязательные комментарии:
+return decode_string #возвращаем декодированную строку
+
+Комментарий удален
+
+13.10 Обязательные комментарии:
+return output_message #выводим сформированное сообщение
+
+Комментарий удален
+
+13.11 Обязательные комментари:
+return discount #возвращаем рассчитанную скидку
+
+Комментарий удален
+
+13.12 Обязательные комментарии:
+return sales_summary #формируем сводку по продажам
+
+Комментарий удален
+
+13.13 Обязательные комментарии:
+WHITE_WALKER = '=' #символ ходока
+
+Комментарий удален
+
+13.14 Закомментированный код:
+"""pizzas = ['leonardo', 'donatello', 'mikelahzhelo', 'rafael']
+for pizza in pizzas:
+	print("I like " + pizza + " pizza")
+print("\nI realy love pizza")"""
+
+pets = ['dog', 'cat', 'rat']
+for pet in pets:
+	print("A " + pet + " would make a great pet")
+print("Any of the animals would make a great  pet!")
+
+Закомментированный код удален, изменения отслеживаются с помощью GIT 
+
+13.15 Закомментированный код:
+for j in range(0, len(num_str)):
+                b += (16**j)*int(num_str[j])
+            sxtee.append(b)
+            #sxtee.append(int(str(k), 16))
+        return sxtee
+        
+Закомментированный код удален, изменения отслеживаются с помощью GIT 
+
